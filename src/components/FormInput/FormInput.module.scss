@@ -1,0 +1,14 @@
+.form-input {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  padding: 6px;
+
+  label {
+    text-transform: capitalize;
+  }
+
+  input {
+    padding: 6px;
+  }
+}
