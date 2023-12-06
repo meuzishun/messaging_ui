@@ -2,13 +2,21 @@
   display: flex;
   flex-direction: column;
   border: none;
-  padding: 6px;
+  padding: 0;
+  margin: 0;
 
   label {
     text-transform: capitalize;
+    font-size: 0.85rem;
   }
 
   input {
     padding: 6px;
+    border-radius: 6px;
+    border: 1px solid grey;
+
+    &:focus {
+      outline-color: var(--soft-blue);
+    }
   }
 }

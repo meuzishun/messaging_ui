@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types';
+console.log(`Rendering ${name} input...`);
+
 import styles from './FormInput.module.scss';
 
 function FormInput({ type, id, name, label, placeholder, value, onChange }) {
+  // console.log(`Rendering ${name} input...`);
+
   return (
     <fieldset className={styles['form-input']}>
       <label htmlFor={id}>{label}</label>
@@ -23,8 +27,8 @@ FormInput.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
 };
 
 export default FormInput;

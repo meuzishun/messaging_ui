@@ -32,7 +32,7 @@ describe('FormInput component', () => {
     expect(input).toBeInTheDocument();
   });
 
-  test('calls callback function for each keystroke', async () => {
+  test('invokes callback function for each keystroke', async () => {
     const text = 'One more test string';
     const input = screen.getByRole('textbox');
     await userEvent.type(input, text);
