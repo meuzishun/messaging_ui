@@ -39,6 +39,13 @@ describe('Form component', () => {
     expect(button).toBeInTheDocument();
   });
 
+  test('renders controlled FormInput component', async () => {
+    const email = 'myEmail@email.com';
+    const emailInput = screen.getByRole('textbox');
+    await userEvent.type(emailInput, email);
+    expect(emailInput.value).toBe(email);
+  });
+
   test('invokes onSubmit callback when submitted', async () => {
     const button = screen.getByRole('button');
     await userEvent.click(button);
