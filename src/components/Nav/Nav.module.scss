@@ -1,0 +1,24 @@
+.nav {
+  position: relative;
+
+  svg {
+    font-size: 40px;
+  }
+
+  ul {
+    position: absolute;
+    top: 100%;
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 1px;
+
+    li {
+      background-color: #000000b0;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+  }
+}
