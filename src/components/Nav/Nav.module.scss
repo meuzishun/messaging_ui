@@ -7,7 +7,7 @@
 
   ul {
     position: absolute;
-    top: 100%;
+    top: 120%;
     right: 0px;
     display: flex;
     flex-direction: column;
@@ -15,9 +15,10 @@
     gap: 1px;
 
     li {
+      font-size: 20px;
       background-color: #000000b0;
       color: #fff;
-      padding: 10px;
+      padding: 20px;
       text-align: center;
     }
   }
