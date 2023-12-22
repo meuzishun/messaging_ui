@@ -1,8 +1,10 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import styles from './Nav.module.scss';
-import { BiMenu, BiX } from 'react-icons/bi';
+import MenuBtn from '../MenuBtn/MenuBtn';
+import NavLinks from '../NavLinks/NavLinks';
 
-function Nav() {
+function Nav({ navLinks }) {
   const [showLinks, setShowLinks] = useState(false);
 
   const handleNavClick = () => {
@@ -10,27 +12,15 @@ function Nav() {
   };
 
   return (
-    <nav className={styles.nav}>
-      {showLinks ? (
-        <>
-          <BiX onClick={handleNavClick} />
-          <ul>
-            <li>
-              <a>Welcome</a>
-            </li>
-            <li>
-              <a>Login</a>
-            </li>
-            <li>
-              <a>Register</a>
-            </li>
-          </ul>
-        </>
-      ) : (
-        <BiMenu onClick={handleNavClick} />
-      )}
+    <nav className={styles.nav} onClick={handleNavClick}>
+      <MenuBtn showLinks={showLinks} />
+      <NavLinks showLinks={showLinks} navLinks={navLinks} />
     </nav>
   );
 }
+
+Nav.propTypes = {
+  navLinks: PropTypes.array.isRequired,
+};
 
 export default Nav;
