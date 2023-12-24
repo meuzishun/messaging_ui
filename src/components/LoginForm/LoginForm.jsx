@@ -3,13 +3,9 @@ import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
 import styles from './LoginForm.module.scss';
 import { postLoginData } from '../../services/api';
+import { loginInputFields } from '../../constants/inputFields';
 
 function LoginForm() {
-  const inputFields = [
-    { type: 'email', id: 'email', name: 'email', label: 'email' },
-    { type: 'password', id: 'password', name: 'password', label: 'password' },
-  ];
-
   const handleSubmit = async (formData) => {
     const response = await postLoginData(formData);
     console.log(response);
@@ -19,7 +15,7 @@ function LoginForm() {
     <div className={styles['login-form']}>
       <h2>Login Form</h2>
       <Form onSubmit={handleSubmit}>
-        {inputFields.map((field) => (
+        {loginInputFields.map((field) => (
           <FormInput
             key={field.id}
             type={field.type}
