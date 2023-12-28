@@ -9,8 +9,8 @@ const postLoginData = async (formData) => {
       },
       body: JSON.stringify({ data: { ...formData } }),
     });
-    const json = await response.json();
-    return json;
+
+    return response;
   } catch (err) {
     console.log(err);
   }
@@ -25,8 +25,8 @@ const postRegisterData = async (formData) => {
       },
       body: JSON.stringify({ data: { ...formData } }),
     });
-    const json = await response.json();
-    return json;
+
+    return response;
   } catch (err) {
     console.log(err);
   }
