@@ -1,26 +1,65 @@
 import PropTypes from 'prop-types';
 import styles from './Form.module.scss';
-import { useState, Children, cloneElement } from 'react';
+import { useReducer, Children, cloneElement } from 'react';
+import { removeObjProps } from '../../lib/removeObjProps.js';
 
 function Form({ onSubmit, children }) {
-  // console.log('Rendering form...');
-  const [formState, setFormState] = useState({});
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit(formState);
-    setFormState({});
+  const initialFormState = {
+    error: null,
+    isLoading: false,
   };
+
+  function formReducer(formState, action) {
+    switch (action.type) {
+      case 'submit':
+        return {
+          isLoading: true,
+          error: null,
+        };
+      case 'changeValue':
+        return {
+          ...formState,
+          [action.field]: action.value,
+        };
+      case 'error':
+        return {
+          isLoading: false,
+          error: action.error,
+        };
+      case 'success':
+        return {
+          isLoading: false,
+          error: null,
+        };
+      default:
+        return initialFormState;
+    }
+  }
+
+  const [formState, dispatch] = useReducer(formReducer, initialFormState);
 
   const handleChange = (e) => {
     e.preventDefault();
-    const { name, value } = e.target;
-    setFormState((prevState) => {
-      return {
-        ...prevState,
-        [name]: value,
-      };
+    dispatch({
+      type: 'changeValue',
+      field: e.target.name,
+      value: e.target.value,
     });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    dispatch({ type: 'submit' });
+    const fields = removeObjProps(formState, ['isLoading', 'error']);
+    const submission = await onSubmit(fields);
+
+    if (!submission.success) {
+      dispatch({ type: 'error', error: submission });
+    }
+
+    if (submission.success) {
+      dispatch({ type: 'success' });
+    }
   };
 
   return (
@@ -39,6 +78,8 @@ function Form({ onSubmit, children }) {
           });
         }
       })}
+      {formState.isLoading && <p>Submitting...</p>}
+      {formState.error && <p>{formState.error.message}</p>}
     </form>
   );
 }
