@@ -1,11 +1,17 @@
 import PropTypes from 'prop-types';
-console.log(`Rendering ${name} input...`);
 
 import styles from './FormInput.module.scss';
 
-function FormInput({ type, id, name, label, placeholder, value, onChange }) {
-  // console.log(`Rendering ${name} input...`);
-
+function FormInput({
+  type,
+  id,
+  name,
+  label,
+  placeholder,
+  value,
+  onChange,
+  forwardedRef,
+}) {
   return (
     <fieldset className={styles['form-input']}>
       <label htmlFor={id}>{label}</label>
@@ -16,6 +22,7 @@ function FormInput({ type, id, name, label, placeholder, value, onChange }) {
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        ref={forwardedRef}
       />
     </fieldset>
   );
@@ -29,6 +36,7 @@ FormInput.propTypes = {
   placeholder: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func,
+  forwardedRef: PropTypes.object,
 };
 
 export default FormInput;
