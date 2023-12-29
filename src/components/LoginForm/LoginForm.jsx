@@ -31,14 +31,13 @@ function LoginForm() {
   };
 
   useEffect(() => {
-    inputRefs.email.current.value = '';
     inputRefs.email.current.focus();
   }, []);
 
   return (
     <div className={styles['login-form']}>
       <h2>Login Form</h2>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} inputRefs={inputRefs}>
         {loginInputFields.map((field) => (
           <FormInput
             key={field.id}
