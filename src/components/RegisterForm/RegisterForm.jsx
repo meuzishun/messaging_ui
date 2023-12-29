@@ -33,7 +33,6 @@ function RegisterForm() {
   };
 
   useEffect(() => {
-    inputRefs.firstName.current.value = '';
     inputRefs.firstName.current.focus();
   }, []);
 
