@@ -39,7 +39,7 @@ function RegisterForm() {
   return (
     <div className={styles['register-form']}>
       <h2>Register Form</h2>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} inputRefs={inputRefs}>
         {registerInputFields.map((field) => (
           <FormInput
             key={field.id}
