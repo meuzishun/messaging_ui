@@ -1,9 +1,10 @@
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Form.module.scss';
 import { useReducer, Children, cloneElement } from 'react';
 import { removeObjProps } from '../../lib/removeObjProps.js';
 
-function Form({ onSubmit, children }) {
+function Form({ onSubmit, children, inputRefs }) {
   const initialFormState = {
     error: null,
     isLoading: false,
@@ -13,6 +14,8 @@ function Form({ onSubmit, children }) {
     switch (action.type) {
       case 'submit':
         return {
+          ...formState,
+          password: '',
           isLoading: true,
           error: null,
         };
@@ -23,6 +26,7 @@ function Form({ onSubmit, children }) {
         };
       case 'error':
         return {
+          ...formState,
           isLoading: false,
           error: action.error,
         };
@@ -62,6 +66,17 @@ function Form({ onSubmit, children }) {
     }
   };
 
+  useEffect(() => {
+    if (formState.error) {
+      if (formState.error.message.includes('email')) {
+        inputRefs.email.current.select();
+      }
+      if (formState.error.message.includes('password')) {
+        inputRefs.password.current.focus();
+      }
+    }
+  }, [formState.error]);
+
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       {Children.map(children, (child) => {
@@ -87,6 +102,7 @@ function Form({ onSubmit, children }) {
 Form.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   children: PropTypes.array.isRequired,
+  inputRefs: PropTypes.object,
 };
 
 export default Form;
