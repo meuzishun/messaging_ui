@@ -71,6 +71,9 @@ function Form({ onSubmit, children, inputRefs }) {
       if (formState.error.message.includes('email')) {
         inputRefs.email.current.select();
       }
+      if (formState.error.message.includes('User')) {
+        inputRefs.email.current.select();
+      }
       if (formState.error.message.includes('password')) {
         inputRefs.password.current.focus();
       }
