@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Form from '../Form/Form';
 import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
@@ -8,36 +8,51 @@ import { loginInputFields } from '../../constants/inputFields';
 import { storeUserDataAndToken } from '../../services/localStorage.js';
 
 function LoginForm() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
   const inputRefs = {
     email: useRef(null),
     password: useRef(null),
   };
 
   const handleSubmit = async (formData) => {
+    setIsLoading(true);
+    setError(null);
     const response = await postLoginData(formData);
     const data = await response.json();
 
     if (!response.ok) {
-      data.success = false;
+      setIsLoading(false);
+      setError(data);
     }
 
     if (response.ok) {
-      data.success = true;
       storeUserDataAndToken(data);
+      setIsLoading(false);
+      setError(null);
       //? Is this where we would navigate?
     }
-
-    return data;
   };
 
   useEffect(() => {
     inputRefs.email.current.focus();
   }, []);
 
+  useEffect(() => {
+    if (error?.message.includes('email') || error?.message.includes('User')) {
+      inputRefs.email.current.select();
+    }
+
+    if (error?.message.includes('password')) {
+      inputRefs.password.current.focus();
+    }
+  }, [error]);
+
   return (
     <div className={styles['login-form']}>
       <h2>Login Form</h2>
-      <Form onSubmit={handleSubmit} inputRefs={inputRefs}>
+      <Form onSubmit={handleSubmit}>
         {loginInputFields.map((field) => (
           <FormInput
             key={field.id}
@@ -48,6 +63,8 @@ function LoginForm() {
             forwardedRef={inputRefs[field.name]}
           />
         ))}
+        {isLoading && <p>Submitting...</p>}
+        {error && <p>{error.message}</p>}
         <Button type='submit' textContent='login' classNames={['btn']} />
       </Form>
     </div>
