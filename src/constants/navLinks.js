@@ -1,8 +1,8 @@
 // navLinks.js
 export const preAuthNavLinks = [
-  { textContent: 'welcome', url: '#home' },
-  { textContent: 'register', url: '#home' },
-  { textContent: 'login', url: '#home' },
+  { textContent: 'welcome', url: '' },
+  { textContent: 'register', url: 'register' },
+  { textContent: 'login', url: 'login' },
 ];
 
 export const postAuthNavLinks = [
