@@ -9,6 +9,19 @@ ul {
   transition: all 0.4s ease-in-out;
   opacity: 1;
   transform-origin: right;
+
+  li {
+    padding: 20px;
+    font-size: 20px;
+    background-color: #000000b0;
+    text-align: left;
+
+    a {
+      text-transform: capitalize;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
 }
 
 ul.hide {
