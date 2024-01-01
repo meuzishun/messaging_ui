@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import styles from './NavLinks.module.scss';
-// import NavLink from '../NavLink/NavLink';
 import { NavLink } from 'react-router-dom';
 
 function NavLinks({ navLinks, showLinks }) {
