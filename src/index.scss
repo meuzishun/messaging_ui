@@ -1,5 +1,6 @@
 :root {
   --soft-blue: dodgerblue;
+  --soft-blue-trans: rgba(30, 143, 255, 0.9);
 }
 
 * {
@@ -18,8 +19,6 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-
-  div:first-child {
-    flex-grow: 1;
-  }
+  align-items: center;
+  margin: 20px;
 }
