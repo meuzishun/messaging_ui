@@ -53,7 +53,7 @@ function RegisterForm() {
 
   return (
     <div className={styles['register-form']}>
-      <h2>Register Form</h2>
+      <h2>Register</h2>
       <Form onSubmit={handleSubmit}>
         {registerInputFields.map((field) => (
           <FormInput

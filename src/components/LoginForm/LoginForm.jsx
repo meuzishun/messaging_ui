@@ -51,7 +51,7 @@ function LoginForm() {
 
   return (
     <div className={styles['login-form']}>
-      <h2>Login Form</h2>
+      <h2>Login</h2>
       <Form onSubmit={handleSubmit}>
         {loginInputFields.map((field) => (
           <FormInput
