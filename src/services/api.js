@@ -1,4 +1,3 @@
-import { getToken } from './localStorage.js';
 const baseUrl = 'https://messaging-api-twex.onrender.com/api';
 
 const postLoginData = async (formData) => {
@@ -33,13 +32,7 @@ const postRegisterData = async (formData) => {
   }
 };
 
-const getProfile = async () => {
-  const token = getToken();
-
-  if (!token) {
-    return null;
-  }
-
+const getProfile = async (token) => {
   try {
     const response = await fetch(`${baseUrl}/profile`, {
       method: 'GET',
