@@ -5,10 +5,19 @@ const storeUserDataAndToken = (data) => {
   console.table(localStorage);
 };
 
+const clearUserDataAndToken = () => {
+  localStorage.removeItem('user');
+  localStorage.removeItem('token');
+};
+
+const setUser = (user) => {
+  localStorage.setItem('user', JSON.stringify(user));
+};
+
 const getToken = () => {
   const token = localStorage.getItem('token');
   const parsedToken = JSON.parse(token);
   return parsedToken;
 };
 
-export { storeUserDataAndToken, getToken };
+export { storeUserDataAndToken, clearUserDataAndToken, setUser, getToken };
