@@ -32,7 +32,7 @@ const postRegisterData = async (formData) => {
   }
 };
 
-const getProfile = async (token) => {
+const getProfileWithToken = async (token) => {
   try {
     const response = await fetch(`${baseUrl}/profile`, {
       method: 'GET',
@@ -48,4 +48,4 @@ const getProfile = async (token) => {
   }
 };
 
-export { postLoginData, postRegisterData, getProfile };
+export { postLoginData, postRegisterData, getProfileWithToken };
