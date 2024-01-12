@@ -1,15 +1,17 @@
 import { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Form from '../Form/Form';
 import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
 import styles from './LoginForm.module.scss';
-import { postLoginData } from '../../services/api';
 import { loginInputFields } from '../../constants/inputFields';
-import { storeUserDataAndToken } from '../../services/localStorage.js';
+import useAuth from '../../hooks/useAuth.jsx';
 
 function LoginForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const inputRefs = {
     email: useRef(null),
@@ -19,19 +21,15 @@ function LoginForm() {
   const handleSubmit = async (formData) => {
     setIsLoading(true);
     setError(null);
-    const response = await postLoginData(formData);
-    const data = await response.json();
 
-    if (!response.ok) {
-      setIsLoading(false);
-      setError(data);
-    }
-
-    if (response.ok) {
-      storeUserDataAndToken(data);
+    try {
+      await login(formData);
       setIsLoading(false);
       setError(null);
-      //? Is this where we would navigate?
+      navigate('/home');
+    } catch (error) {
+      setIsLoading(false);
+      setError(error);
     }
   };
 
