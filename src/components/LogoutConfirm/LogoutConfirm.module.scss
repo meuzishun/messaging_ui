@@ -1,0 +1,14 @@
+.logout-confirm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  * {
+    margin: 30px;
+  }
+
+  p {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
