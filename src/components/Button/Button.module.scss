@@ -5,6 +5,10 @@ button {
   border: none;
   border-radius: 6px;
   padding: 10px 20px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .btn {
