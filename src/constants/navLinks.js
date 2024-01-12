@@ -9,4 +9,5 @@ export const postAuthNavLinks = [
   { textContent: 'dashboard', url: '#home' },
   { textContent: 'profile', url: '#home' },
   { textContent: 'friends', url: '#home' },
+  { textContent: 'logout', url: 'logout' },
 ];
