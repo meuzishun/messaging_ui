@@ -1,20 +1,17 @@
-import PropTypes from 'prop-types';
 import styles from './Header.module.scss';
 import Nav from '../Nav/Nav';
 import Heading from '../Heading/Heading';
 import { preAuthNavLinks, postAuthNavLinks } from '../../constants/navLinks';
+import useAuth from '../../hooks/useAuth';
 
-function Header({ auth }) {
+function Header() {
+  const { isAuthenticated } = useAuth();
   return (
     <header className={styles.header}>
       <Heading />
-      <Nav navLinks={auth ? postAuthNavLinks : preAuthNavLinks} />
+      <Nav navLinks={isAuthenticated ? postAuthNavLinks : preAuthNavLinks} />
     </header>
   );
 }
-
-Header.propTypes = {
-  auth: PropTypes.bool.isRequired,
-};
 
 export default Header;
