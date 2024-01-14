@@ -64,6 +64,13 @@ function AuthProvider({ children }) {
 
     if (!token) {
       console.log('No token');
+      dispatch({
+        type: INITIALIZE,
+        payload: {
+          isAuthenticated: false,
+          user: null,
+        },
+      });
       return;
     }
 
@@ -71,6 +78,13 @@ function AuthProvider({ children }) {
 
     if (!response.ok) {
       console.log('Something went wrong');
+      dispatch({
+        type: INITIALIZE,
+        payload: {
+          isAuthenticated: false,
+          user: null,
+        },
+      });
       return;
     }
 
