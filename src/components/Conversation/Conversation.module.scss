@@ -1,0 +1,30 @@
+.conversation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  width: 100%;
+  transition: all 500ms ease-in-out;
+
+  &.hide {
+    transform: translateX(120%);
+  }
+
+  .back-btn {
+    margin: 10px;
+    padding: 0;
+    align-self: flex-start;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .symbol {
+      font-size: 2rem;
+    }
+
+    .text {
+      font-size: 1.2rem;
+    }
+  }
+}

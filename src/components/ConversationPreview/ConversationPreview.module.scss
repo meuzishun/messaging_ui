@@ -1,0 +1,25 @@
+.conversation-preview {
+  padding: 20px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    'authors timestamp'
+    'message message';
+
+  &.selected {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .author-list {
+    font-weight: bold;
+  }
+
+  .timestamp {
+    font-size: 0.8rem;
+  }
+
+  .last-message {
+    font-size: 0.8rem;
+  }
+}
