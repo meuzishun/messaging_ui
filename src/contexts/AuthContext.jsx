@@ -4,6 +4,7 @@ import {
   clearUserDataAndToken,
   getToken,
   setUser,
+  storeUserDataAndToken,
 } from '../services/localStorage.js';
 import {
   postRegisterData,
@@ -89,16 +90,13 @@ function AuthProvider({ children }) {
     }
 
     const data = await response.json();
-
-    console.log(data);
-
     setUser(data);
 
     dispatch({
       type: INITIALIZE,
       payload: {
         isAuthenticated: true,
-        user: data,
+        user: data.user,
       },
     });
   };
@@ -112,7 +110,7 @@ function AuthProvider({ children }) {
       throw new Error(data.message);
     }
 
-    setUser(data.user);
+    storeUserDataAndToken(data);
 
     dispatch({
       type: REGISTER,
@@ -131,7 +129,7 @@ function AuthProvider({ children }) {
       throw new Error(data.message);
     }
 
-    setUser(data.user);
+    storeUserDataAndToken(data);
 
     dispatch({
       type: LOGIN,
