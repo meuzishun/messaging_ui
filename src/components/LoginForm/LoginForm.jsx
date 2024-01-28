@@ -26,7 +26,7 @@ function LoginForm() {
       await login(formData);
       setIsLoading(false);
       setError(null);
-      navigate('/home');
+      navigate('/messages');
     } catch (error) {
       setIsLoading(false);
       setError(error);
