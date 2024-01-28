@@ -40,4 +40,21 @@ const getProfileWithToken = async (token) => {
   }
 };
 
-export { postLoginData, postRegisterData, getProfileWithToken };
+const getMessagesWithToken = async (token) => {
+  const response = await fetch(`${baseUrl}/messages`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return response;
+};
+
+export {
+  postLoginData,
+  postRegisterData,
+  getProfileWithToken,
+  getMessagesWithToken,
+};
