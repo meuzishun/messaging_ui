@@ -52,9 +52,23 @@ const getMessagesWithToken = async (token) => {
   return response;
 };
 
+const postMessageWithTokenAndData = async (token, formData) => {
+  const response = await fetch(`${baseUrl}/messages`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ data: { ...formData } }),
+  });
+
+  return response;
+};
+
 export {
   postLoginData,
   postRegisterData,
   getProfileWithToken,
   getMessagesWithToken,
+  postMessageWithTokenAndData,
 };
