@@ -24,8 +24,12 @@ export const formatTimestamp = (timestamp) => {
     return 'now';
   }
 
-  if (timeSince < day) {
-    return `${msgTime.getHours()}:${msgTime.getMinutes()}`;
+  if (timeSince < day && now.getDay() === msgTime.getDay()) {
+    const hours = msgTime.getHours();
+    const minutes = msgTime.getMinutes();
+    return `${hours % 12 === 0 ? 12 : hours % 12}:${minutes} ${
+      hours > 12 ? 'pm' : 'am'
+    }`;
   }
 
   if (timeSince < day * 2) {
