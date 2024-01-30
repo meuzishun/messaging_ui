@@ -1,14 +1,20 @@
 import useMessages from '../../hooks/useMessages';
 import { formatClassNames } from '../../lib/formatClassNames';
 import Message from '../Message/Message';
+import NewMessageInput from '../NewMessageInput/NewMessageInput';
 import styles from './Conversation.module.scss';
 
 function Conversation() {
-  const { selectedConversation, viewConversation, setViewConversation } =
-    useMessages();
+  const {
+    selectedConversation,
+    viewConversation,
+    setViewConversation,
+    setIsAnimating,
+  } = useMessages();
 
   const handleBackBtnClick = () => {
     setViewConversation(false);
+    setIsAnimating(true);
   };
 
   const classNames = ['conversation'];
@@ -17,17 +23,27 @@ function Conversation() {
     classNames.push('hide');
   }
 
+  const handleTransitionEnd = () => {
+    setIsAnimating(false);
+  };
+
   return (
-    <div className={formatClassNames(styles, classNames)}>
+    <div
+      className={formatClassNames(styles, classNames)}
+      onTransitionEnd={handleTransitionEnd}
+    >
       {selectedConversation ? (
         <>
           <button className={styles['back-btn']} onClick={handleBackBtnClick}>
             <span className={styles['symbol']}>&#8592;</span>
             <span className={styles['text']}>back</span>
           </button>
-          {selectedConversation.map((message) => (
-            <Message key={message._id} message={message} />
-          ))}
+          <div className={styles['messages-container']}>
+            {selectedConversation.map((message) => (
+              <Message key={message._id} message={message} />
+            ))}
+          </div>
+          <NewMessageInput focus={focus} />
         </>
       ) : null}
     </div>

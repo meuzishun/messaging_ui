@@ -1,13 +1,19 @@
 .conversation {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  position: absolute;
-  width: 100%;
+  flex-grow: 1;
   transition: all 500ms ease-in-out;
 
   &.hide {
     transform: translateX(120%);
+  }
+
+  .messages-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: scroll;
   }
 
   .back-btn {
