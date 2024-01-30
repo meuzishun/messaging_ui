@@ -9,17 +9,20 @@ import { getParticipantNames } from '../../lib/getParticipantNames';
 import styles from './ConversationPreview.module.scss';
 
 function ConversationPreview({ conversation }) {
-  const { setSelectedConversation, selectedConversation, setViewConversation } =
-    useMessages();
+  const {
+    setSelectedConversation,
+    selectedConversation,
+    setViewConversation,
+    setIsAnimating,
+  } = useMessages();
   const { user } = useAuth();
 
   const handleConversationClick = () => {
     setSelectedConversation(conversation);
     setViewConversation(true);
+    setIsAnimating(true);
   };
 
-  // console.log('User value in ConversationPreview:');
-  // console.log(user);
   const participantsNames = getParticipantNames(conversation, user);
   const isSelected = selectedConversation === conversation;
   const classNames = ['conversation-preview'];
