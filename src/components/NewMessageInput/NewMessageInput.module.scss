@@ -1,0 +1,23 @@
+.new-msg-input {
+  display: flex;
+  gap: 10px;
+
+  input {
+    flex-grow: 1;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid grey;
+
+    &:focus {
+      outline: 1px solid var(--soft-blue-trans);
+    }
+  }
+
+  button {
+    background-color: var(--soft-blue);
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 40px;
+  }
+}
