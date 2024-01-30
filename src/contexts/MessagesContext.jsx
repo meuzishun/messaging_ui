@@ -9,6 +9,7 @@ function MessagesProvider({ children }) {
   const [conversations, setConversations] = useState(null);
   const [selectedConversation, setSelectedConversation] = useState(null);
   const [viewConversation, setViewConversation] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const getMessages = async () => {
     const token = getToken();
@@ -29,6 +30,8 @@ function MessagesProvider({ children }) {
         setSelectedConversation,
         viewConversation,
         setViewConversation,
+        isAnimating,
+        setIsAnimating,
       }}
     >
       {children}
