@@ -1,5 +1,6 @@
 ul {
   position: absolute;
+  z-index: 1;
   top: 50px;
   right: -15px;
   display: flex;
@@ -13,7 +14,7 @@ ul {
   li {
     padding: 20px;
     font-size: 20px;
-    background-color: var(--soft-blue-trans);
+    background-color: var(--almost-black);
     text-align: left;
 
     a {
