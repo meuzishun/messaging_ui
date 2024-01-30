@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import useMessages from '../../hooks/useMessages';
 import { formatClassNames } from '../../lib/formatClassNames';
 import { reverseArray } from '../../lib/reverseArray';
@@ -5,7 +6,12 @@ import ConversationPreview from '../ConversationPreview/ConversationPreview';
 import styles from './ConversationsList.module.scss';
 
 function ConversationsList() {
-  const { conversations, viewConversation } = useMessages();
+  const {
+    conversations,
+    viewConversation,
+    setSelectedConversation,
+    isAnimating,
+  } = useMessages();
 
   const reversedConversations = conversations
     ? reverseArray(conversations)
@@ -16,6 +22,12 @@ function ConversationsList() {
   if (viewConversation) {
     classNames.push('hide');
   }
+
+  useEffect(() => {
+    if (!isAnimating && !viewConversation) {
+      setSelectedConversation(null);
+    }
+  }, [isAnimating]);
 
   return (
     <div className={formatClassNames(styles, classNames)}>
