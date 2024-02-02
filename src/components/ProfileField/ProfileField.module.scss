@@ -1,0 +1,29 @@
+//! This is all just temporary... feel free to alter
+
+.profile-field {
+  width: 1000px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    'label label'
+    'content btn';
+
+  input,
+  p {
+    grid-area: content;
+    font-size: 2rem;
+  }
+
+  label {
+    grid-area: label;
+  }
+
+  p {
+    border: 2px solid transparent;
+    padding: 4px 0;
+  }
+
+  button {
+    grid-area: btn;
+  }
+}
