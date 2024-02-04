@@ -1,0 +1,12 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  gap: 30px;
+
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+}
