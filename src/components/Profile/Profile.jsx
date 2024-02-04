@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import ProfileField from '../ProfileField/ProfileField';
+import Button from '../Button/Button';
 import styles from './Profile.module.scss';
 
 function Profile() {
@@ -48,8 +49,18 @@ function Profile() {
         : null}
       {edited ? (
         <div className={styles['btn-container']}>
-          <button onClick={handleSaveClick}>save</button>
-          <button onClick={handleUndoClick}>undo</button>
+          <Button
+            type='button'
+            textContent='save'
+            clickHandler={handleSaveClick}
+            classNames={['btn', 'btn-submit']}
+          />
+          <Button
+            type='button'
+            textContent='undo'
+            clickHandler={handleUndoClick}
+            classNames={['btn']}
+          />
         </div>
       ) : null}
     </div>
