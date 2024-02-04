@@ -38,6 +38,7 @@ function Profile() {
 
   return (
     <div className={styles['profile']}>
+      <h2>Profile</h2>
       {profile
         ? Object.entries(profile).map((arr, i) => (
             <ProfileField
