@@ -24,6 +24,7 @@ function Profile() {
       email: 'asmith@email.com',
       title: 'Super awesome guy',
     });
+    setEdited(false);
   };
 
   useEffect(() => {
