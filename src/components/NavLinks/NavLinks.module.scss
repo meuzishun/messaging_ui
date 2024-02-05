@@ -26,6 +26,7 @@ ul {
 }
 
 ul.hide {
-  transform: perspective(500px) rotateY(-90deg);
+  // transform: perspective(500px) rotateY(-90deg);
+  transform: translateX(100%);
   opacity: 0;
 }
