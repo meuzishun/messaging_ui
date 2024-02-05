@@ -3,6 +3,10 @@
   flex-direction: column;
   max-width: 800px;
   gap: 30px;
+  padding: 20px;
+  color: var(--almost-black);
+  border-radius: 10px;
+  box-shadow: 5px 10px 10px 5px var(--soft-blue-shadow);
 
   h2 {
     font-size: 2rem;
