@@ -10,12 +10,15 @@ function MessagesProvider({ children }) {
   const [selectedConversation, setSelectedConversation] = useState(null);
   const [viewConversation, setViewConversation] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const getMessages = async () => {
+    setIsLoading(true);
     const token = getToken();
     const response = await getMessagesWithToken(token);
     const data = await response.json();
     setConversations(data.messages);
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -32,6 +35,8 @@ function MessagesProvider({ children }) {
         setViewConversation,
         isAnimating,
         setIsAnimating,
+        isLoading,
+        setIsLoading,
       }}
     >
       {children}
