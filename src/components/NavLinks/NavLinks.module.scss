@@ -1,6 +1,6 @@
 ul {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   top: 50px;
   right: -15px;
   display: flex;
@@ -10,11 +10,12 @@ ul {
   transition: all 0.4s ease-in-out;
   opacity: 1;
   transform-origin: right;
+  backdrop-filter: blur(10px);
 
   li {
     padding: 20px;
     font-size: 20px;
-    background-color: var(--almost-black);
+    background-color: var(--soft-blue);
     text-align: left;
 
     a {
