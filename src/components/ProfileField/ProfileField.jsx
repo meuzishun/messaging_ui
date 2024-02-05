@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState, useRef, useEffect } from 'react';
 import { convertCamelcaseToSent } from '../../lib/convertCamelcaseToSent';
+import { BsPencilSquare, BsCheckCircle } from 'react-icons/bs';
 import styles from './ProfileField.module.scss';
 
 function ProfileField({ label, content, onInputChange }) {
@@ -39,9 +40,13 @@ function ProfileField({ label, content, onInputChange }) {
         <p>{content}</p>
       )}
       {editMode ? (
-        <button onClick={handleOkClick}>√</button>
+        <button className={styles['ok-btn']} onClick={handleOkClick}>
+          <BsCheckCircle />
+        </button>
       ) : (
-        <button onClick={handleEditClick}>/</button>
+        <button className={styles['edit-btn']} onClick={handleEditClick}>
+          <BsPencilSquare />
+        </button>
       )}
     </div>
   );
