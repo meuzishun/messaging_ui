@@ -65,10 +65,24 @@ const postMessageWithTokenAndData = async (token, formData) => {
   return response;
 };
 
+const editProfileWithTokenAndData = async (token, formData) => {
+  const response = await fetch(`${baseUrl}/profile`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ data: { ...formData } }),
+  });
+
+  return response;
+};
+
 export {
   postLoginData,
   postRegisterData,
   getProfileWithToken,
   getMessagesWithToken,
   postMessageWithTokenAndData,
+  editProfileWithTokenAndData,
 };
