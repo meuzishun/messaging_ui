@@ -11,6 +11,7 @@ function ConversationsList() {
     viewConversation,
     setSelectedConversation,
     isAnimating,
+    isLoading,
   } = useMessages();
 
   const reversedConversations = conversations
@@ -27,11 +28,13 @@ function ConversationsList() {
     if (!isAnimating && !viewConversation) {
       setSelectedConversation(null);
     }
-  }, [isAnimating]);
+  }, [isAnimating, viewConversation]); //? should this also include viewConversation?
 
   return (
     <div className={formatClassNames(styles, classNames)}>
-      {reversedConversations ? (
+      {isLoading ? (
+        <p className={styles['loading-msg']}>Loading...</p>
+      ) : reversedConversations && reversedConversations.length > 0 ? (
         reversedConversations.map((conversation) => {
           return (
             <ConversationPreview
@@ -41,7 +44,7 @@ function ConversationsList() {
           );
         })
       ) : (
-        <p className={styles['loading-msg']}>Loading...</p>
+        <p className={styles['msg']}>No messages</p>
       )}
     </div>
   );
