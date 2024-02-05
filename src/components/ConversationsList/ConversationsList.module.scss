@@ -14,5 +14,25 @@
 
   .loading-msg {
     text-align: center;
+    color: var(--soft_blue);
+    animation: pulse 1.5s linear infinite;
+  }
+
+  .msg {
+    text-align: center;
+    font-style: italic;
+    color: var(--almost-black);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0.1;
   }
 }
