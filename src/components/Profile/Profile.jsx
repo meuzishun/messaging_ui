@@ -1,4 +1,9 @@
 import { useState, useEffect } from 'react';
+import { getToken } from '../../services/localStorage';
+import {
+  getProfileWithToken,
+  editProfileWithTokenAndData,
+} from '../../services/api';
 import ProfileField from '../ProfileField/ProfileField';
 import Button from '../Button/Button';
 import styles from './Profile.module.scss';
@@ -12,28 +17,26 @@ function Profile() {
     setEdited(true);
   };
 
-  const handleSaveClick = () => {
-    // TODO: req editProfile to API... setState on res
+  const handleSaveClick = async () => {
+    const token = getToken();
+    await editProfileWithTokenAndData(token, profile);
     setEdited(false);
   };
 
   const handleUndoClick = () => {
-    // TODO: getProfile from API, setState on res
-    setProfile({
-      name: 'Andrew Smith',
-      email: 'asmith@email.com',
-      title: 'Super awesome guy',
-    });
+    initializeProfile();
     setEdited(false);
   };
 
+  const initializeProfile = async () => {
+    const token = getToken();
+    const response = await getProfileWithToken(token);
+    const data = await response.json();
+    setProfile(data.user);
+  };
+
   useEffect(() => {
-    // TODO: Only on initial render, getProfile from API and set to state
-    setProfile({
-      name: 'Andrew Smith',
-      email: 'asmith@email.com',
-      title: 'Super awesome guy',
-    });
+    initializeProfile();
   }, []);
 
   return (
