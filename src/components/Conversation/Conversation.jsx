@@ -2,6 +2,7 @@ import useMessages from '../../hooks/useMessages';
 import { formatClassNames } from '../../lib/formatClassNames';
 import Message from '../Message/Message';
 import NewMessageInput from '../NewMessageInput/NewMessageInput';
+import { BsArrowLeft } from 'react-icons/bs';
 import styles from './Conversation.module.scss';
 
 function Conversation() {
@@ -35,8 +36,9 @@ function Conversation() {
       {selectedConversation ? (
         <>
           <button className={styles['back-btn']} onClick={handleBackBtnClick}>
-            <span className={styles['symbol']}>&#8592;</span>
-            <span className={styles['text']}>back</span>
+            <span className={styles['symbol']}>
+              <BsArrowLeft />
+            </span>
           </button>
           <div className={styles['messages-container']}>
             {selectedConversation.map((message) => (
