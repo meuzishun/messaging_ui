@@ -7,7 +7,7 @@ export const preAuthNavLinks = [
 
 export const postAuthNavLinks = [
   { textContent: 'dashboard', url: 'messages' },
-  { textContent: 'profile', url: '#home' },
+  { textContent: 'profile', url: 'profile' },
   { textContent: 'friends', url: '#home' },
   { textContent: 'logout', url: 'logout' },
 ];
