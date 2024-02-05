@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState, useRef, useEffect } from 'react';
+import { convertCamelcaseToSent } from '../../lib/convertCamelcaseToSent';
 import styles from './ProfileField.module.scss';
 
 function ProfileField({ label, content, onInputChange }) {
@@ -26,7 +27,7 @@ function ProfileField({ label, content, onInputChange }) {
 
   return (
     <div className={styles['profile-field']}>
-      <label>{label}</label>
+      <label>{convertCamelcaseToSent(label)}</label>
       {editMode ? (
         <input
           placeholder={content}
