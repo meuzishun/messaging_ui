@@ -7,6 +7,7 @@ import MessagesPage from './pages/MessagesPage';
 import ProfilePage from './pages/ProfilePage';
 import LogoutPage from './pages/LogoutPage';
 import AuthGuard from './components/AuthGuard/AuthGuard';
+import GuestGuard from './components/GuestGuard/GuestGuard';
 
 export const routes = [
   {
@@ -15,15 +16,27 @@ export const routes = [
     children: [
       {
         index: true,
-        element: <WelcomePage />,
+        element: (
+          <GuestGuard>
+            <WelcomePage />
+          </GuestGuard>
+        ),
       },
       {
         path: 'register',
-        element: <RegisterPage />,
+        element: (
+          <GuestGuard>
+            <RegisterPage />
+          </GuestGuard>
+        ),
       },
       {
         path: 'login',
-        element: <LoginPage />,
+        element: (
+          <GuestGuard>
+            <LoginPage />
+          </GuestGuard>
+        ),
       },
       {
         path: 'home',
