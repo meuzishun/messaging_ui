@@ -6,11 +6,13 @@ import {
 } from '../../services/api';
 import ProfileField from '../ProfileField/ProfileField';
 import Button from '../Button/Button';
+import LoadingMsg from '../LoadingMsg/LoadingMsg';
 import styles from './Profile.module.scss';
 
 function Profile() {
   const [profile, setProfile] = useState(null);
   const [edited, setEdited] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onInputChange = (label, value) => {
     setProfile((prev) => ({ ...prev, [label]: value }));
@@ -29,15 +31,21 @@ function Profile() {
   };
 
   const initializeProfile = async () => {
+    setIsLoading(true);
     const token = getToken();
     const response = await getProfileWithToken(token);
     const data = await response.json();
     setProfile(data.user);
+    setIsLoading(false);
   };
 
   useEffect(() => {
     initializeProfile();
   }, []);
+
+  if (isLoading) {
+    return <LoadingMsg text='Loading...' />;
+  }
 
   return (
     <div className={styles['profile']}>
