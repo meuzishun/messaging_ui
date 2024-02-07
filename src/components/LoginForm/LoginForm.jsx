@@ -62,7 +62,7 @@ function LoginForm() {
             forwardedRef={inputRefs[field.name]}
           />
         ))}
-        {isLoading && <LoadingMsg text='Loading...' />}
+        {isLoading && <LoadingMsg text='Submitting...' />}
         {error && <p>{error.message}</p>}
         <Button type='submit' textContent='login' classNames={['btn']} />
       </Form>
