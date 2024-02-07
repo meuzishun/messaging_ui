@@ -3,6 +3,7 @@ import useMessages from '../../hooks/useMessages';
 import { formatClassNames } from '../../lib/formatClassNames';
 import { reverseArray } from '../../lib/reverseArray';
 import ConversationPreview from '../ConversationPreview/ConversationPreview';
+import LoadingMsg from '../LoadingMsg/LoadingMsg';
 import styles from './ConversationsList.module.scss';
 
 function ConversationsList() {
@@ -33,7 +34,7 @@ function ConversationsList() {
   return (
     <div className={formatClassNames(styles, classNames)}>
       {isLoading ? (
-        <p className={styles['loading-msg']}>Loading...</p>
+        <LoadingMsg text='Loading...' />
       ) : reversedConversations && reversedConversations.length > 0 ? (
         reversedConversations.map((conversation) => {
           return (
