@@ -3,13 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import Form from '../Form/Form';
 import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
-import LoadingMsg from '../LoadingMsg/LoadingMsg';
 import styles from './LoginForm.module.scss';
 import { loginInputFields } from '../../constants/inputFields';
 import useAuth from '../../hooks/useAuth.jsx';
 
 function LoginForm() {
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -20,16 +18,14 @@ function LoginForm() {
   };
 
   const handleSubmit = async (formData) => {
-    setIsLoading(true);
+    inputRefs.password.current.blur();
     setError(null);
 
     try {
       await login(formData);
-      setIsLoading(false);
       setError(null);
       navigate('/messages');
     } catch (error) {
-      setIsLoading(false);
       setError(error);
     }
   };
@@ -62,7 +58,6 @@ function LoginForm() {
             forwardedRef={inputRefs[field.name]}
           />
         ))}
-        {isLoading && <LoadingMsg text='Submitting...' />}
         {error && <p>{error.message}</p>}
         <Button type='submit' textContent='login' classNames={['btn']} />
       </Form>
