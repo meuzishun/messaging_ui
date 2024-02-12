@@ -3,7 +3,6 @@ import useMessages from '../../hooks/useMessages';
 import { formatClassNames } from '../../lib/formatClassNames';
 import { reverseArray } from '../../lib/reverseArray';
 import ConversationPreview from '../ConversationPreview/ConversationPreview';
-import LoadingMsg from '../LoadingMsg/LoadingMsg';
 import styles from './ConversationsList.module.scss';
 
 function ConversationsList() {
@@ -29,24 +28,26 @@ function ConversationsList() {
     if (!isAnimating && !viewConversation) {
       setSelectedConversation(null);
     }
-  }, [isAnimating, viewConversation]); //? should this also include viewConversation?
+  }, [isAnimating, viewConversation]); //? should this include viewConversation?
+
+  if (isLoading) {
+    return null;
+  }
 
   return (
     <div className={formatClassNames(styles, classNames)}>
-      {isLoading ? (
-        <LoadingMsg text='Loading...' />
-      ) : reversedConversations && reversedConversations.length > 0 ? (
-        reversedConversations.map((conversation) => {
-          return (
-            <ConversationPreview
-              key={conversation[0]._id}
-              conversation={conversation}
-            />
-          );
-        })
-      ) : (
-        <p className={styles['msg']}>No messages</p>
+      {!isLoading && conversations?.length < 1 && (
+        <div className={formatClassNames(styles, classNames)}>
+          <p className={styles['msg']}>No messages</p>
+        </div>
       )}
+      {reversedConversations &&
+        reversedConversations.map((conversation) => (
+          <ConversationPreview
+            key={conversation[0]._id}
+            conversation={conversation}
+          />
+        ))}
     </div>
   );
 }
