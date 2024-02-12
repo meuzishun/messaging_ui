@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { createContext, useEffect, useReducer } from 'react';
+import useLoadingModal from '../hooks/useLoadingModal';
 import {
   clearUserDataAndToken,
   getToken,
@@ -58,9 +59,11 @@ const AuthContext = createContext(null);
 
 function AuthProvider({ children }) {
   const [authState, dispatch] = useReducer(authReducer, initialAuthState);
+  const { setShowLoadingModal } = useLoadingModal();
 
   const initialize = async () => {
     console.log('Auth initializing...');
+    setShowLoadingModal(true);
     const token = getToken();
 
     if (!token) {
@@ -72,6 +75,7 @@ function AuthProvider({ children }) {
           user: null,
         },
       });
+      setShowLoadingModal(false);
       return;
     }
 
@@ -86,6 +90,7 @@ function AuthProvider({ children }) {
           user: null,
         },
       });
+      setShowLoadingModal(false);
       return;
     }
 
@@ -99,10 +104,12 @@ function AuthProvider({ children }) {
         user: data.user,
       },
     });
+    setShowLoadingModal(false);
   };
 
   const register = async (formData) => {
     console.log('Registering...');
+    setShowLoadingModal(true);
     const response = await postRegisterData(formData);
     const data = await response.json();
 
@@ -118,10 +125,12 @@ function AuthProvider({ children }) {
         user: data.user,
       },
     });
+    setShowLoadingModal(false);
   };
 
   const login = async (formData) => {
     console.log('Logging in...');
+    setShowLoadingModal(true);
     const response = await postLoginData(formData);
     const data = await response.json();
 
@@ -137,15 +146,18 @@ function AuthProvider({ children }) {
         user: data.user,
       },
     });
+    setShowLoadingModal(false);
   };
 
   const logout = () => {
     console.log('Logging out...');
+    setShowLoadingModal(true);
     clearUserDataAndToken();
 
     dispatch({
       type: LOGOUT,
     });
+    setShowLoadingModal(false);
   };
 
   useEffect(() => {
