@@ -5,6 +5,7 @@
   border-radius: 10px;
   position: absolute;
   width: 100%;
+  animation: fade-in 500ms ease-in-out;
   transition: all 500ms ease-in-out;
   z-index: 1;
 
@@ -22,6 +23,15 @@
     text-align: center;
     font-style: italic;
     color: var(--almost-black);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
