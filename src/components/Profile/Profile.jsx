@@ -1,25 +1,21 @@
 import useProfile from '../../hooks/useProfile';
 import ProfileField from '../ProfileField/ProfileField';
 import Button from '../Button/Button';
-import LoadingMsg from '../LoadingMsg/LoadingMsg';
 import styles from './Profile.module.scss';
 
 function Profile() {
-  const { isLoading, profile, isEdited, saveProfile, revertProfile } =
-    useProfile();
+  const { profile, isEdited, saveProfile, revertProfile } = useProfile();
 
-  if (isLoading) {
-    return <LoadingMsg text='Loading...' />;
+  if (!profile) {
+    return null;
   }
 
   return (
     <div className={styles['profile']}>
       <h2>Profile</h2>
-      {profile
-        ? Object.entries(profile).map(([label, content], i) => (
-            <ProfileField key={i} label={label} content={content} />
-          ))
-        : null}
+      {Object.entries(profile).map(([label, content], i) => (
+        <ProfileField key={i} label={label} content={content} />
+      ))}
       {isEdited ? (
         <div className={styles['btn-container']}>
           <Button
