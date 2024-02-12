@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { createContext, useEffect, useReducer } from 'react';
+import useLoadingModal from '../hooks/useLoadingModal';
 import { getToken } from '../services/localStorage.js';
 import {
   getProfileWithToken,
@@ -91,8 +92,10 @@ function ProfileProvider({ children }) {
     profileReducer,
     initialProfileState
   );
+  const { setShowLoadingModal } = useLoadingModal();
 
   const initialize = async () => {
+    setShowLoadingModal(true);
     dispatch({
       type: LOAD,
     });
@@ -107,6 +110,7 @@ function ProfileProvider({ children }) {
           error: data.message,
         },
       });
+      setShowLoadingModal(false);
       return;
     }
 
@@ -116,6 +120,7 @@ function ProfileProvider({ children }) {
         profile: data.user,
       },
     });
+    setShowLoadingModal(false);
   };
 
   const setEditField = async (label) => {
@@ -138,6 +143,7 @@ function ProfileProvider({ children }) {
   };
 
   const saveProfile = async () => {
+    setShowLoadingModal(true);
     dispatch({
       type: LOAD,
     });
@@ -155,6 +161,7 @@ function ProfileProvider({ children }) {
           error: data.message,
         },
       });
+      setShowLoadingModal(false);
       return;
     }
 
@@ -164,9 +171,11 @@ function ProfileProvider({ children }) {
         profile: data.user,
       },
     });
+    setShowLoadingModal(false);
   };
 
   const revertProfile = async () => {
+    setShowLoadingModal(true);
     dispatch({
       type: LOAD,
     });
@@ -181,6 +190,7 @@ function ProfileProvider({ children }) {
           error: data.message,
         },
       });
+      setShowLoadingModal(false);
       return;
     }
 
@@ -190,6 +200,7 @@ function ProfileProvider({ children }) {
         profile: data.user,
       },
     });
+    setShowLoadingModal(false);
   };
 
   useEffect(() => {
