@@ -3,13 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import Form from '../Form/Form';
 import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
-import LoadingMsg from '../LoadingMsg/LoadingMsg';
 import styles from './RegisterForm.module.scss';
 import { registerInputFields } from '../../constants/inputFields.js';
 import useAuth from '../../hooks/useAuth.jsx';
 
 function RegisterForm() {
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const { register } = useAuth();
   const navigate = useNavigate();
@@ -23,16 +21,13 @@ function RegisterForm() {
 
   const handleSubmit = async (formData) => {
     inputRefs.password.current.blur();
-    setIsLoading(true);
     setError(null);
 
     try {
       await register(formData);
-      setIsLoading(false);
       setError(null);
       navigate('/messages');
     } catch (error) {
-      setIsLoading(false);
       setError(error);
     }
   };
@@ -65,7 +60,7 @@ function RegisterForm() {
             forwardedRef={inputRefs[field.name]}
           />
         ))}
-        {isLoading && <LoadingMsg text='Submitting...' />}
+        {/* {isLoading && <LoadingMsg text='Submitting...' />} */}
         {error && <p>{error.message}</p>}
         <Button type='submit' textContent='sign up' classNames={['btn']} />
       </Form>
