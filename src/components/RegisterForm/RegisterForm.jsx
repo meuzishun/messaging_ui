@@ -22,6 +22,7 @@ function RegisterForm() {
   };
 
   const handleSubmit = async (formData) => {
+    inputRefs.password.current.blur();
     setIsLoading(true);
     setError(null);
 
