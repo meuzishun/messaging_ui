@@ -1,0 +1,54 @@
+.loading-page {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.665);
+  z-index: 5;
+
+  .loading-container {
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    * {
+      font-size: 2rem;
+    }
+
+    .loading-icon svg {
+      font-size: 5rem;
+      animation: spin 1.5s linear infinite;
+      color: var(--light-grey);
+    }
+
+    .loading-msg {
+      text-align: center;
+      color: var(--soft-blue);
+      font-style: italic;
+      animation: pulse 1.5s linear infinite;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
