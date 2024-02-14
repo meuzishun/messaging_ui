@@ -1,3 +1,5 @@
+@use '../../animations';
+
 .loading-modal {
   position: absolute;
   top: 0;
@@ -5,7 +7,7 @@
   height: 100vh;
   background-color: rgba(255, 255, 255, 0.665);
   z-index: 5;
-  animation: fade-in 500ms ease-in-out;
+  @include animations.fade-in;
 
   .loading-container {
     margin-top: 10rem;
@@ -20,7 +22,7 @@
 
     .loading-icon svg {
       font-size: 5rem;
-      animation: spin 1.5s linear infinite;
+      @include animations.spin;
       color: var(--light-grey);
     }
 
@@ -28,37 +30,7 @@
       text-align: center;
       color: var(--soft-blue);
       font-style: italic;
-      animation: pulse 1.5s linear infinite;
+      @include animations.pulse;
     }
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes pulse {
-  0% {
-    opacity: 0.1;
-  }
-  50% {
-    opacity: 0.7;
-  }
-  100% {
-    opacity: 0.1;
-  }
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
   }
 }

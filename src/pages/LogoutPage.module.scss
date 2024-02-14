@@ -1,14 +1,7 @@
+@use '../animations';
+
 .logout-page {
   display: flex;
   flex-grow: 1;
-  animation: fade-in 150ms ease-in-out;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  @include animations.fade-in;
 }

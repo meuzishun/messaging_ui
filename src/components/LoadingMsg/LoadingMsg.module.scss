@@ -1,3 +1,5 @@
+@use '../../animations';
+
 .loading-container {
   display: flex;
   flex-direction: column;
@@ -9,7 +11,7 @@
 
   .loading-icon svg {
     font-size: 2rem;
-    animation: spin 1.5s linear infinite;
+    @include animations.spin;
     color: var(--light-grey);
   }
 
@@ -17,27 +19,6 @@
     text-align: center;
     color: var(--soft-blue);
     font-style: italic;
-    animation: pulse 1.5s linear infinite;
-  }
-}
-
-@keyframes pulse {
-  0% {
-    opacity: 0.1;
-  }
-  50% {
-    opacity: 0.7;
-  }
-  100% {
-    opacity: 0.1;
-  }
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+    @include animations.pulse;
   }
 }

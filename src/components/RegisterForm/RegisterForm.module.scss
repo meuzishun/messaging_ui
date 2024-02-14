@@ -1,3 +1,5 @@
+@use '../../animations';
+
 .register-form {
   flex-grow: 1;
   display: flex;
@@ -6,18 +8,9 @@
   justify-content: center;
   width: 100%;
   max-width: 400px;
-  animation: fade-in 150ms ease-in-out;
+  @include animations.fade-in;
 
   h2 {
     font-weight: normal;
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }

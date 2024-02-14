@@ -1,3 +1,5 @@
+@use '../../animations';
+
 .profile {
   display: flex;
   flex-direction: column;
@@ -8,7 +10,7 @@
   background-color: var(--white);
   border-radius: 10px;
   box-shadow: 5px 10px 10px 5px var(--soft-blue-shadow);
-  animation: fade-in 500ms ease-in-out;
+  @include animations.fade-in;
 
   h2 {
     font-size: 2rem;
@@ -19,14 +21,5 @@
     display: flex;
     justify-content: center;
     gap: 40px;
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
