@@ -5,6 +5,7 @@ import WelcomePage from './pages/WelcomePage';
 import HomePage from './pages/HomePage';
 import MessagesPage from './pages/MessagesPage';
 import ProfilePage from './pages/ProfilePage';
+import FriendsPage from './pages/FriendsPage';
 import LogoutPage from './pages/LogoutPage';
 import AuthGuard from './components/AuthGuard/AuthGuard';
 import GuestGuard from './components/GuestGuard/GuestGuard';
@@ -59,6 +60,14 @@ export const routes = [
         element: (
           <AuthGuard>
             <ProfilePage />
+          </AuthGuard>
+        ),
+      },
+      {
+        path: 'friends',
+        element: (
+          <AuthGuard>
+            <FriendsPage />
           </AuthGuard>
         ),
       },
