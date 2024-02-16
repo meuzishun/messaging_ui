@@ -1,5 +1,12 @@
+import { FriendsProvider } from '../contexts/FriendsProvider';
+import Friends from '../components/Friends/Friends';
+
 function FriendsPage() {
-  return <div>FriendsPage</div>;
+  return (
+    <FriendsProvider>
+      <Friends />
+    </FriendsProvider>
+  );
 }
 
 export default FriendsPage;
