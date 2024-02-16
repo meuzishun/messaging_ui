@@ -17,7 +17,7 @@ const friendsReducer = (state, action) => {
         ...state,
         isLoading: false,
         isInitialized: true,
-        profile: action.payload.profile,
+        friends: action.payload.friends,
       };
 
     default:
@@ -38,9 +38,10 @@ function FriendsProvider({ children }) {
     const response = await getFriendsWithToken(token);
     const data = await response.json();
     const friends = data.contacts;
+
     dispatch({
       type: INITIALIZE,
-      payload: friends,
+      payload: { friends },
     });
   };
 
@@ -49,7 +50,7 @@ function FriendsProvider({ children }) {
   }, []);
 
   return (
-    <FriendsContext.Provider value={friendsState}>
+    <FriendsContext.Provider value={{ ...friendsState }}>
       {children}
     </FriendsContext.Provider>
   );
