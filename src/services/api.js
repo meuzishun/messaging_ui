@@ -52,6 +52,18 @@ const getMessagesWithToken = async (token) => {
   return response;
 };
 
+const getFriendsWithToken = async (token) => {
+  const response = await fetch(`${baseUrl}/contacts`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return response;
+};
+
 const postMessageWithTokenAndData = async (token, formData) => {
   const response = await fetch(`${baseUrl}/messages`, {
     method: 'POST',
@@ -83,6 +95,7 @@ export {
   postRegisterData,
   getProfileWithToken,
   getMessagesWithToken,
+  getFriendsWithToken,
   postMessageWithTokenAndData,
   editProfileWithTokenAndData,
 };
