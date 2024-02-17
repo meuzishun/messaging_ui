@@ -1,9 +1,13 @@
 import PropTypes from 'prop-types';
 import { createContext, useEffect, useReducer } from 'react';
 import { getToken } from '../services/localStorage.js';
-import { getFriendsWithToken } from '../services/api.js';
+import {
+  getFriendsWithToken,
+  deleteFriendWithTokenAndId,
+} from '../services/api.js';
 
 const INITIALIZE = 'INITIALIZE';
+const REMOVE = 'REMOVE';
 
 const initialFriendsState = {
   isInitialized: false,
@@ -15,8 +19,13 @@ const friendsReducer = (state, action) => {
     case INITIALIZE:
       return {
         ...state,
-        isLoading: false,
         isInitialized: true,
+        friends: action.payload.friends,
+      };
+
+    case REMOVE:
+      return {
+        ...state,
         friends: action.payload.friends,
       };
 
@@ -45,12 +54,24 @@ function FriendsProvider({ children }) {
     });
   };
 
+  const removeFriend = async (id) => {
+    const token = getToken();
+    const response = await deleteFriendWithTokenAndId(token, id);
+    const data = await response.json();
+    const friends = data.contacts;
+
+    dispatch({
+      type: REMOVE,
+      payload: { friends },
+    });
+  };
+
   useEffect(() => {
     initialize();
   }, []);
 
   return (
-    <FriendsContext.Provider value={{ ...friendsState }}>
+    <FriendsContext.Provider value={{ ...friendsState, removeFriend }}>
       {children}
     </FriendsContext.Provider>
   );
