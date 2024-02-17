@@ -90,6 +90,18 @@ const editProfileWithTokenAndData = async (token, formData) => {
   return response;
 };
 
+const deleteFriendWithTokenAndId = async (token, id) => {
+  const response = await fetch(`${baseUrl}/contacts/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return response;
+};
+
 export {
   postLoginData,
   postRegisterData,
@@ -98,4 +110,5 @@ export {
   getFriendsWithToken,
   postMessageWithTokenAndData,
   editProfileWithTokenAndData,
+  deleteFriendWithTokenAndId,
 };
