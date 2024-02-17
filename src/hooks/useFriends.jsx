@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { FriendsContext } from '../contexts/FriendsProvider';
+import { FriendsContext } from '../contexts/FriendsContext';
 
 function useFriends() {
   const context = useContext(FriendsContext);

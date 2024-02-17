@@ -1,4 +1,4 @@
-import { FriendsProvider } from '../contexts/FriendsProvider';
+import { FriendsProvider } from '../contexts/FriendsContext';
 import Friends from '../components/Friends/Friends';
 
 function FriendsPage() {
