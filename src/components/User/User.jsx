@@ -1,8 +1,15 @@
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
+import { getToken } from '../../services/localStorage';
+import { addFriendWithTokenAndId } from '../../services/api';
 
 function User({ user }) {
-  const handleAddClick = () => {
-    console.log(user._id);
+  const navigate = useNavigate();
+
+  const handleAddClick = async () => {
+    const token = getToken();
+    await addFriendWithTokenAndId(token, user._id);
+    navigate('/friends');
   };
 
   return (
