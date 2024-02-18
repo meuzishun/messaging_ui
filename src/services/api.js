@@ -103,13 +103,25 @@ const deleteFriendWithTokenAndId = async (token, id) => {
 };
 
 const searchUsersWithTokenAndStr = async (token, str) => {
-  console.log(`searching for ${str}`);
   const response = await fetch(`${baseUrl}/users/search?query=${str}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
+  });
+
+  return response;
+};
+
+const addFriendWithTokenAndId = async (token, id) => {
+  const response = await fetch(`${baseUrl}/contacts`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ contactId: id }),
   });
 
   return response;
@@ -125,4 +137,5 @@ export {
   editProfileWithTokenAndData,
   deleteFriendWithTokenAndId,
   searchUsersWithTokenAndStr,
+  addFriendWithTokenAndId,
 };
