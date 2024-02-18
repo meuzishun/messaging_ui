@@ -102,6 +102,19 @@ const deleteFriendWithTokenAndId = async (token, id) => {
   return response;
 };
 
+const searchUsersWithTokenAndStr = async (token, str) => {
+  console.log(`searching for ${str}`);
+  const response = await fetch(`${baseUrl}/users/search?query=${str}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return response;
+};
+
 export {
   postLoginData,
   postRegisterData,
@@ -111,4 +124,5 @@ export {
   postMessageWithTokenAndData,
   editProfileWithTokenAndData,
   deleteFriendWithTokenAndId,
+  searchUsersWithTokenAndStr,
 };
