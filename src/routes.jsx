@@ -73,7 +73,7 @@ export const routes = [
         ),
       },
       {
-        path: 'users',
+        path: 'search',
         element: (
           <AuthGuard>
             <UserSearchPage />
