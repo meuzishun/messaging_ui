@@ -13,9 +13,13 @@ function Profile() {
   return (
     <div className={styles['profile']}>
       <h2>Profile</h2>
-      {Object.entries(profile).map(([label, content], i) => (
-        <ProfileField key={i} label={label} content={content} />
-      ))}
+      {Object.entries(profile)
+        .filter(
+          ([label]) => label !== '_id' && label !== '__v' && label !== 'friends'
+        )
+        .map(([label, content], i) => (
+          <ProfileField key={i} label={label} content={content} />
+        ))}
       {isEdited ? (
         <div className={styles['btn-container']}>
           <Button
