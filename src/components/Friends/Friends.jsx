@@ -16,7 +16,7 @@ function Friends() {
       ) : (
         <p>You have no friends</p>
       )}
-      <NavLink to={'/users'}>find friend</NavLink>
+      <NavLink to={'/search'}>find friend</NavLink>
     </div>
   );
 }
