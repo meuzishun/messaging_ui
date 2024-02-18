@@ -102,10 +102,6 @@ function ProfileProvider({ children }) {
     const token = getToken();
     const response = await getProfileWithToken(token);
     const data = await response.json();
-    const profile = data.user;
-    delete profile._id;
-    delete profile.__v;
-    delete profile.friends;
 
     if (!response.ok) {
       dispatch({
