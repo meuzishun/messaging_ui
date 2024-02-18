@@ -11,15 +11,19 @@ function UserSearch() {
   };
 
   useEffect(() => {
-    if (input !== '') {
-      searchUsers(input);
-    }
+    searchUsers(input);
   }, [input]);
 
   return (
     <div>
-      <input type='search' value={input} onChange={handleInput} autoFocus />
-      <UsersList />
+      <input
+        type='search'
+        value={input}
+        onChange={handleInput}
+        autoFocus
+        placeholder='Search for user...'
+      />
+      {input.length > 0 ? <UsersList /> : null}
     </div>
   );
 }
