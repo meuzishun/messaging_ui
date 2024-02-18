@@ -15,7 +15,7 @@ function UsersList() {
 
   return (
     <div>
-      {userSearchResults.length > 1 ? (
+      {userSearchResults.length > 0 ? (
         userSearchResults
           .filter(
             ({ _id }) =>
