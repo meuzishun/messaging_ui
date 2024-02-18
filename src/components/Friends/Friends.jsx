@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import useFriends from '../../hooks/useFriends';
 import Friend from '../Friend/Friend';
 
@@ -8,15 +9,14 @@ function Friends() {
     return <div>Loading...</div>;
   }
 
-  if (friends.length < 1) {
-    return <p>You have no friends</p>;
-  }
-
   return (
     <div>
-      {friends.map((friend) => (
-        <Friend friend={friend} key={friend._id} />
-      ))}
+      {friends.length > 0 ? (
+        friends.map((friend) => <Friend friend={friend} key={friend._id} />)
+      ) : (
+        <p>You have no friends</p>
+      )}
+      <NavLink to={'/users'}>find friend</NavLink>
     </div>
   );
 }
