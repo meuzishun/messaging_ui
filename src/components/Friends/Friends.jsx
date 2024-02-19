@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import useFriends from '../../hooks/useFriends';
 import Friend from '../Friend/Friend';
+import styles from './Friends.module.scss';
 
 function Friends() {
   const { friends } = useFriends();
@@ -10,13 +11,13 @@ function Friends() {
   }
 
   return (
-    <div>
+    <div className={styles['friends']}>
+      <NavLink to={'/search'}>find friend</NavLink>
       {friends.length > 0 ? (
         friends.map((friend) => <Friend friend={friend} key={friend._id} />)
       ) : (
         <p>You have no friends</p>
       )}
-      <NavLink to={'/search'}>find friend</NavLink>
     </div>
   );
 }

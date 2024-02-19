@@ -1,0 +1,15 @@
+.friends {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  a {
+    text-transform: capitalize;
+    text-decoration: none;
+    text-align: center;
+    color: var(--white);
+    background-color: var(--soft-blue);
+    padding: 10px;
+    border-radius: 10px;
+  }
+}
