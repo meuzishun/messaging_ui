@@ -3,6 +3,7 @@ import useFriends from '../../hooks/useFriends';
 import useAuth from '../../hooks/useAuth';
 import LoadingMsg from '../LoadingMsg/LoadingMsg';
 import User from '../User/User';
+import { filterUserAndFriends } from '../../lib/filterUserAndFriends';
 import styles from './UsersList.module.scss';
 
 function UsersList() {
@@ -10,20 +11,16 @@ function UsersList() {
   const { friends } = useFriends();
   const { isLoading, userSearchResults } = useUserSearch();
 
+  const filteredUsers = filterUserAndFriends(userSearchResults, friends, user);
+
   if (isLoading) {
     return <LoadingMsg text='loading' />;
   }
 
   return (
     <div className={styles['users-list']}>
-      {userSearchResults.length > 0 ? (
-        userSearchResults
-          .filter(
-            ({ _id }) =>
-              !friends.map((friend) => friend._id).includes(_id) &&
-              user._id !== _id
-          )
-          .map((user) => <User key={user._id} user={user} />)
+      {filteredUsers.length > 0 ? (
+        filteredUsers.map((user) => <User key={user._id} user={user} />)
       ) : (
         <p>No results</p>
       )}
