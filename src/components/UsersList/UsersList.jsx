@@ -3,6 +3,7 @@ import useFriends from '../../hooks/useFriends';
 import useAuth from '../../hooks/useAuth';
 import LoadingMsg from '../LoadingMsg/LoadingMsg';
 import User from '../User/User';
+import styles from './UsersList.module.scss';
 
 function UsersList() {
   const { user } = useAuth();
@@ -14,7 +15,7 @@ function UsersList() {
   }
 
   return (
-    <div>
+    <div className={styles['users-list']}>
       {userSearchResults.length > 0 ? (
         userSearchResults
           .filter(
