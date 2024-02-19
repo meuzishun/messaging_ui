@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import useUserSearch from '../../hooks/useUserSearch';
 import UsersList from '../UsersList.jsx/UsersList';
+import styles from './UserSearch.module.scss';
 
 function UserSearch() {
   const [input, setInput] = useState('');
@@ -15,7 +16,7 @@ function UserSearch() {
   }, [input]);
 
   return (
-    <div>
+    <div className={styles['user-search']}>
       <input
         type='search'
         value={input}

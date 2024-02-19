@@ -1,0 +1,15 @@
+.user-search {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border-radius: 100px;
+    border: 1px solid grey;
+
+    &:focus {
+      outline-color: var(--soft-blue);
+    }
+  }
+}
