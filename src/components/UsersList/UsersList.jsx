@@ -22,7 +22,7 @@ function UsersList() {
       {filteredUsers.length > 0 ? (
         filteredUsers.map((user) => <User key={user._id} user={user} />)
       ) : (
-        <p>No results</p>
+        <p className={styles['empty-list']}>No results</p>
       )}
     </div>
   );
