@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import useFriends from '../../hooks/useFriends';
+import styles from './Friend.module.scss';
 
 function Friend({ friend }) {
   const { removeFriend } = useFriends();
@@ -9,7 +10,7 @@ function Friend({ friend }) {
   };
 
   return (
-    <div>
+    <div className={styles['friend']}>
       <p>
         {friend.firstName} {friend.lastName}
       </p>
