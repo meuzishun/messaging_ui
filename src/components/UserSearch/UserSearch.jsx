@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import useUserSearch from '../../hooks/useUserSearch';
-import UsersList from '../UsersList.jsx/UsersList';
+import UsersList from '../UsersList/UsersList';
 import styles from './UserSearch.module.scss';
 
 function UserSearch() {
