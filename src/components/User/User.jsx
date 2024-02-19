@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { getToken } from '../../services/localStorage';
 import { addFriendWithTokenAndId } from '../../services/api';
+import { BsPersonPlusFill } from 'react-icons/bs';
+import styles from './User.module.scss';
 
 function User({ user }) {
   const navigate = useNavigate();
@@ -13,14 +15,15 @@ function User({ user }) {
   };
 
   return (
-    <>
-      <p key={user._id}>
-        <span>
-          {user.firstName} {user.lastName} ({user.email})
-        </span>
-        <button onClick={handleAddClick}>add</button>
+    <div className={styles['user']}>
+      <p key={user._id} className={styles['user-name']}>
+        {user.firstName} {user.lastName}{' '}
+        <span className={styles['email']}>{user.email}</span>
       </p>
-    </>
+      <button onClick={handleAddClick}>
+        <BsPersonPlusFill />
+      </button>
+    </div>
   );
 }
 
