@@ -1,6 +1,21 @@
+$margin: 20px;
+
 .root-layout {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   overflow-x: hidden;
+
+  .main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--soft-blue-trans);
+
+    & > * {
+      margin: $margin;
+      width: calc(100% - calc($margin * 2));
+    }
+  }
 }

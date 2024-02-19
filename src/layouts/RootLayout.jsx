@@ -9,7 +9,7 @@ export default function RootLayout() {
     <div className={styles['root-layout']}>
       <LoadingModal />
       <Header auth={false} />
-      <main className='main'>
+      <main className={styles['main']}>
         <Outlet />
       </main>
       <Footer />
