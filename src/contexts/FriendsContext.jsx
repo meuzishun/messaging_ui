@@ -3,14 +3,18 @@ import { createContext, useEffect, useReducer } from 'react';
 import { getToken } from '../services/localStorage.js';
 import {
   getFriendsWithToken,
+  addFriendWithTokenAndId,
   deleteFriendWithTokenAndId,
 } from '../services/api.js';
 
 const INITIALIZE = 'INITIALIZE';
+const LOAD = 'LOAD';
+const ADD = 'ADD';
 const REMOVE = 'REMOVE';
 
 const initialFriendsState = {
   isInitialized: false,
+  isLoading: false,
   friends: null,
 };
 
@@ -20,12 +24,27 @@ const friendsReducer = (state, action) => {
       return {
         ...state,
         isInitialized: true,
+        isLoading: false,
+        friends: action.payload.friends,
+      };
+
+    case LOAD:
+      return {
+        ...state,
+        isLoading: true,
+      };
+
+    case ADD:
+      return {
+        ...state,
+        isLoading: false,
         friends: action.payload.friends,
       };
 
     case REMOVE:
       return {
         ...state,
+        isLoading: false,
         friends: action.payload.friends,
       };
 
@@ -43,6 +62,8 @@ function FriendsProvider({ children }) {
   );
 
   const initialize = async () => {
+    dispatch({ type: LOAD });
+
     const token = getToken();
     const response = await getFriendsWithToken(token);
     const data = await response.json();
@@ -54,7 +75,23 @@ function FriendsProvider({ children }) {
     });
   };
 
+  const addFriend = async (id) => {
+    dispatch({ type: LOAD });
+
+    const token = getToken();
+    const response = await addFriendWithTokenAndId(token, id);
+    const data = await response.json();
+    const friends = data.contacts;
+
+    dispatch({
+      type: ADD,
+      payload: { friends },
+    });
+  };
+
   const removeFriend = async (id) => {
+    dispatch({ type: LOAD });
+
     const token = getToken();
     const response = await deleteFriendWithTokenAndId(token, id);
     const data = await response.json();
@@ -71,7 +108,9 @@ function FriendsProvider({ children }) {
   }, []);
 
   return (
-    <FriendsContext.Provider value={{ ...friendsState, removeFriend }}>
+    <FriendsContext.Provider
+      value={{ ...friendsState, addFriend, removeFriend }}
+    >
       {children}
     </FriendsContext.Provider>
   );
