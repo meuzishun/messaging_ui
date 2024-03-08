@@ -15,6 +15,14 @@
     transform: translateX(-120%);
   }
 
+  .new-msg-btn {
+    color: var(--white);
+    background-color: var(--soft-blue);
+    width: 100%;
+    margin: 5px 0 15px;
+    font-size: 1.2rem;
+  }
+
   .loading-msg {
     text-align: center;
     color: var(--soft_blue);
