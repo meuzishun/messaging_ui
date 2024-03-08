@@ -1,32 +1,19 @@
 import useMessages from '../../hooks/useMessages';
-import { formatClassNames } from '../../lib/formatClassNames';
+import ConversationHeader from '../ConversationHeader/ConversationHeader';
 import Message from '../Message/Message';
 import NewMessageInput from '../NewMessageInput/NewMessageInput';
-import { BsArrowLeft } from 'react-icons/bs';
+import { formatClassNames } from '../../lib/formatClassNames';
 import styles from './Conversation.module.scss';
 
 function Conversation() {
-  const {
-    selectedConversation,
-    viewConversation,
-    setViewConversation,
-    setIsAnimating,
-  } = useMessages();
-
-  const handleBackBtnClick = () => {
-    setViewConversation(false);
-    setIsAnimating(true);
-  };
+  const { selectedConversation, viewConversation, handleTransitionEnd } =
+    useMessages();
 
   const classNames = ['conversation'];
 
   if (!viewConversation) {
     classNames.push('hide');
   }
-
-  const handleTransitionEnd = () => {
-    setIsAnimating(false);
-  };
 
   return (
     <div
@@ -35,15 +22,13 @@ function Conversation() {
     >
       {selectedConversation ? (
         <>
-          <button className={styles['back-btn']} onClick={handleBackBtnClick}>
-            <span className={styles['symbol']}>
-              <BsArrowLeft />
-            </span>
-          </button>
+          <ConversationHeader />
           <div className={styles['messages-container']}>
-            {selectedConversation.map((message) => (
-              <Message key={message._id} message={message} />
-            ))}
+            {selectedConversation.length > 0
+              ? selectedConversation.map((message) => (
+                  <Message key={message._id} message={message} />
+                ))
+              : null}
           </div>
           <NewMessageInput focus={focus} />
         </>
