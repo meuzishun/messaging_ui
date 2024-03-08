@@ -1,16 +1,15 @@
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import { getToken } from '../../services/localStorage';
-import { addFriendWithTokenAndId } from '../../services/api';
+import useFriends from '../../hooks/useFriends';
 import { BsPersonPlusFill } from 'react-icons/bs';
 import styles from './User.module.scss';
 
 function User({ user }) {
+  const { addFriend } = useFriends();
   const navigate = useNavigate();
 
   const handleAddClick = async () => {
-    const token = getToken();
-    await addFriendWithTokenAndId(token, user._id);
+    await addFriend(user._id);
     navigate('/friends');
   };
 
