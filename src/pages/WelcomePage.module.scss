@@ -1,7 +1,6 @@
 @use '../animations';
 
 .welcome-page {
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
   @include animations.fade-in;
