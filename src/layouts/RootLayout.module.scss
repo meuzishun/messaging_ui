@@ -1,19 +1,11 @@
-$margin: 20px;
-
 .root-layout {
   height: 100vh;
   overflow-x: hidden;
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr auto;
+  grid-template: auto 1fr auto / 1fr;
 
   .main {
     overflow-y: auto;
     background-color: var(--soft-blue-trans);
-
-    & > * {
-      margin: $margin;
-      width: calc(100% - calc($margin * 2));
-    }
   }
 }
