@@ -1,8 +1,9 @@
 .nav {
-  display: flex;
+  display: grid;
+  grid-template: 1fr / repeat(2, auto);
   justify-content: center;
-  gap: 20px;
   padding: 20px;
+  gap: 20px;
 
   a {
     text-decoration: none;
