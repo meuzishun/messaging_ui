@@ -1,12 +1,14 @@
 @use '../../animations';
 
 .login-form {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  height: 100%;
+  display: grid;
+  grid-template: min-content auto / minmax(auto, 400px);
+  align-items: start;
   justify-content: center;
-  max-width: 400px;
+  padding: 20px;
+  padding-top: 5vh;
+  gap: 20px;
   @include animations.fade-in;
 
   h2 {
