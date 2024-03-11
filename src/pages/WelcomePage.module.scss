@@ -3,7 +3,8 @@
 .welcome-page {
   height: 100%;
   display: grid;
-  grid-template: 1fr 1fr / 1fr;
-  align-items: center;
+  grid-template: auto 1fr / 1fr;
+  align-items: start;
+  padding-top: 2vh;
   @include animations.fade-in;
 }
