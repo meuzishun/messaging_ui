@@ -13,15 +13,16 @@ ul {
   backdrop-filter: blur(10px);
 
   li {
-    padding: 20px;
-    font-size: 20px;
-    background-color: var(--soft-blue);
-    text-align: left;
-
     a {
+      display: inline-block;
+      width: 100%;
+      padding: 20px;
+      font-size: 20px;
       text-transform: capitalize;
       color: #fff;
       text-decoration: none;
+      text-align: left;
+      background-color: var(--soft-blue);
     }
   }
 }
