@@ -1,26 +1,25 @@
 .conversation-header {
-  flex-shrink: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 5px;
-  padding-bottom: 10px;
-  margin-bottom: 5px;
-  border-bottom: 1px solid black;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-auto-rows: auto;
+  grid-template-areas:
+    'btn btn btn'
+    'to names plus';
+  padding: 10px 20px;
+  background-color: var(--white);
+  box-shadow: 0 2px 15px 5px var(--soft-blue-shadow);
 
   .back-btn {
     margin-bottom: 10px;
     padding: 0;
-    align-self: flex-start;
-    flex: 1 0 100%;
+    justify-self: start;
+    grid-area: btn;
     background-color: transparent;
-    display: flex;
 
     .symbol {
       font-size: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: grid;
+      place-items: center center;
     }
   }
 
