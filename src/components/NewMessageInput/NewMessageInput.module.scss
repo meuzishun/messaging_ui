@@ -3,8 +3,7 @@
   grid-template-columns: 1fr auto;
   gap: 10px;
   padding: 10px 20px;
-  background-color: var(--white);
-  box-shadow: 0 2px 15px 5px var(--soft-blue-shadow);
+  border-top: 2px solid var(--light-grey);
 
   input {
     font-size: 1rem;
