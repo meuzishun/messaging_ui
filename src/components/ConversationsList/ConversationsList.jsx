@@ -23,7 +23,7 @@ function ConversationsList() {
         new message
       </button>
       {conversations?.length < 1 && (
-        <div className={formatClassNames(styles, classNames)}>
+        <div>
           <p className={styles['msg']}>No messages</p>
         </div>
       )}
