@@ -1,4 +1,7 @@
 .profile-page {
-  flex-grow: 1;
   width: 100%;
+  padding: 20px;
+  display: grid;
+  place-content: center center;
+  grid-template-columns: minmax(auto, 600px);
 }
