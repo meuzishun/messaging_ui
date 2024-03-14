@@ -1,7 +1,7 @@
 @use '../animations';
 
 .logout-page {
-  display: flex;
-  flex-grow: 1;
+  display: grid;
+  place-content: center center;
   @include animations.fade-in;
 }
