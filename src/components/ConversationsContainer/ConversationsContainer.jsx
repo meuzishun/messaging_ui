@@ -1,13 +1,13 @@
 import useMessages from '../../hooks/useMessages';
 import ConversationPreview from '../ConversationPreview/ConversationPreview';
 import { formatClassNames } from '../../lib/formatClassNames';
-import styles from './ConversationsList.module.scss';
+import styles from './ConversationsContainer.module.scss';
 
-function ConversationsList() {
+function ConversationsContainer() {
   const { conversations, viewConversation, isLoading, createNewMsg } =
     useMessages();
 
-  const classNames = ['conversations-list'];
+  const classNames = ['conversations-container'];
 
   if (viewConversation) {
     classNames.push('hide');
@@ -40,4 +40,4 @@ function ConversationsList() {
   );
 }
 
-export default ConversationsList;
+export default ConversationsContainer;
