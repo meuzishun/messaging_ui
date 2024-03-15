@@ -1,0 +1,24 @@
+@use '../../animations';
+
+.conversations-list {
+  grid-area: msgs;
+  height: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: min-content;
+  gap: 10px;
+  overflow-y: auto;
+
+  .loading-msg {
+    text-align: center;
+    color: var(--soft_blue);
+    @include animations.pulse;
+  }
+
+  .msg {
+    text-align: center;
+    font-style: italic;
+    color: var(--almost-black);
+  }
+}

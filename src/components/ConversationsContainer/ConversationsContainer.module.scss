@@ -2,13 +2,15 @@
 
 .conversations-container {
   position: absolute;
-  padding: 20px;
   display: grid;
-  grid-auto-rows: auto;
   grid-template-columns: minmax(auto, 400px);
+  grid-template-rows: min-content 1fr;
+  grid-template-areas:
+    'newBtn'
+    'msgs';
   justify-content: center;
-  gap: 10px;
   width: 100%;
+  height: 100%;
   @include animations.fade-in;
   transition: all 500ms ease-in-out;
   z-index: 1;
@@ -18,22 +20,10 @@
   }
 
   .new-msg-btn {
+    grid-area: newBtn;
     color: var(--white);
     background-color: var(--soft-blue);
-    width: 100%;
-    margin: 5px 0 15px;
+    margin: 20px 20px 0 20px;
     font-size: 1.2rem;
-  }
-
-  .loading-msg {
-    text-align: center;
-    color: var(--soft_blue);
-    @include animations.pulse;
-  }
-
-  .msg {
-    text-align: center;
-    font-style: italic;
-    color: var(--almost-black);
   }
 }
