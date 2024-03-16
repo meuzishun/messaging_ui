@@ -1,5 +1,6 @@
 import useMessages from '../../hooks/useMessages';
 import ConversationPreview from '../ConversationPreview/ConversationPreview';
+import LoadingMsg from '../LoadingMsg/LoadingMsg';
 import { formatClassNames } from '../../lib/formatClassNames';
 import styles from './ConversationsList.module.scss';
 
@@ -9,7 +10,7 @@ function ConversationsList() {
   const classNames = ['conversations-list'];
 
   if (isLoading) {
-    return null;
+    return <LoadingMsg text='loading' />;
   }
 
   return (
