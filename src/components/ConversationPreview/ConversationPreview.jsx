@@ -9,7 +9,7 @@ import { getParticipantNames } from '../../lib/getParticipantNames';
 import styles from './ConversationPreview.module.scss';
 
 function ConversationPreview({ conversation }) {
-  const { displayConversation } = useMessages();
+  const { displayConversation, selectedConversation } = useMessages();
   const { user } = useAuth();
 
   const handleConversationClick = () => {
@@ -18,6 +18,10 @@ function ConversationPreview({ conversation }) {
 
   const participantsNames = getParticipantNames(conversation, user);
   const classNames = ['conversation-preview'];
+
+  if (JSON.stringify(selectedConversation) === JSON.stringify(conversation)) {
+    classNames.push('selected');
+  }
 
   const mostRecentMessage = conversation.at(-1);
 
