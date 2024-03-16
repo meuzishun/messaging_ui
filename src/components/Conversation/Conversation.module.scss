@@ -12,6 +12,12 @@
     transform: translateX(120%);
   }
 
+  .no-msg {
+    padding-top: 20px;
+    font-style: italic;
+    text-align: center;
+  }
+
   .messages-container {
     padding: 10px 20px;
     display: grid;
@@ -19,5 +25,17 @@
     grid-auto-rows: min-content;
     align-items: start;
     overflow-y: auto;
+  }
+}
+
+@media (min-width: 800px) {
+  .conversation {
+    position: initial;
+    width: auto;
+    overflow-y: auto;
+
+    &.hide {
+      transform: none;
+    }
   }
 }
