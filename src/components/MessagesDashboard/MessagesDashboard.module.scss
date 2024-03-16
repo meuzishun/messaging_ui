@@ -8,3 +8,11 @@
   grid-auto-rows: auto;
   justify-items: center;
 }
+
+@media (min-width: 800px) {
+  .messages-dashboard {
+    position: initial;
+    grid-template-columns: auto auto;
+    justify-content: center;
+  }
+}
