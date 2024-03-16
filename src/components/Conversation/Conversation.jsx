@@ -32,7 +32,9 @@ function Conversation() {
           </div>
           <NewMessageInput focus={focus} />
         </>
-      ) : null}
+      ) : (
+        <p className={styles['no-msg']}>No message selected</p>
+      )}
     </div>
   );
 }
