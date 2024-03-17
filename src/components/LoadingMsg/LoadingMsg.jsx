@@ -3,12 +3,14 @@ import { BsArrowClockwise } from 'react-icons/bs';
 import PropTypes from 'prop-types';
 import styles from './LoadingMsg.module.scss';
 
-function LoadingMsg({ text }) {
+function LoadingMsg({ text, showIcon = true }) {
   return (
     <div className={styles['loading-container']}>
-      <div className={styles['loading-icon']}>
-        <BsArrowClockwise />
-      </div>
+      {showIcon ? (
+        <div className={styles['loading-icon']}>
+          <BsArrowClockwise />
+        </div>
+      ) : null}
       <p className={styles['loading-msg']}>{text}</p>
     </div>
   );
@@ -16,6 +18,7 @@ function LoadingMsg({ text }) {
 
 LoadingMsg.propTypes = {
   text: PropTypes.string.isRequired,
+  showIcon: PropTypes.bool.isRequired,
 };
 
 export default LoadingMsg;
