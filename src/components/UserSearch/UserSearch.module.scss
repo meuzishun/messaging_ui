@@ -1,12 +1,15 @@
 .user-search {
-  padding: 20px;
+  height: 100%;
   display: grid;
-  place-content: center center;
+  justify-content: center;
+  align-content: start;
   grid-template-columns: minmax(auto, 400px);
+  grid-template-rows: min-content auto;
 
   input {
     font-size: 1.2rem;
-    padding: 10px 20px;
+    margin: 20px;
+    padding: 10px;
     border-radius: 100px;
     border: 1px solid grey;
 

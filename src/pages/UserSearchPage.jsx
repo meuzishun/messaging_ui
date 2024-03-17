@@ -4,13 +4,11 @@ import { FriendsProvider } from '../contexts/FriendsContext';
 
 function UserSearchPage() {
   return (
-    <div>
-      <FriendsProvider>
-        <UserSearchProvider>
-          <UserSearch />
-        </UserSearchProvider>
-      </FriendsProvider>
-    </div>
+    <FriendsProvider>
+      <UserSearchProvider>
+        <UserSearch />
+      </UserSearchProvider>
+    </FriendsProvider>
   );
 }
 
