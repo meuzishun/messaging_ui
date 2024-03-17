@@ -18,7 +18,7 @@ function LoadingMsg({ text, showIcon = true }) {
 
 LoadingMsg.propTypes = {
   text: PropTypes.string.isRequired,
-  showIcon: PropTypes.bool.isRequired,
+  showIcon: PropTypes.bool,
 };
 
 export default LoadingMsg;
