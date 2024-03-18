@@ -1,16 +1,11 @@
 @use '../../styles/animations';
+@use '../../styles/layouts';
 
 .conversations-container {
   position: absolute;
-  display: grid;
+  @include layouts.fixed-header-scrollable-column;
   grid-template-columns: minmax(auto, 400px);
-  grid-template-rows: min-content 1fr;
-  grid-template-areas:
-    'newBtn'
-    'msgs';
-  justify-content: center;
   width: 100%;
-  height: 100%;
   overflow-y: auto;
   @include animations.fade-in;
   transition: all 500ms ease-in-out;
@@ -21,7 +16,6 @@
   }
 
   .new-msg-btn {
-    grid-area: newBtn;
     color: var(--white);
     background-color: var(--soft-blue);
     margin: 20px 20px 0 20px;

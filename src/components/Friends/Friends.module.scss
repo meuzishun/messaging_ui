@@ -1,10 +1,8 @@
+@use '../../styles/layouts';
+
 .friends {
-  height: 100%;
-  display: grid;
-  justify-content: center;
-  align-content: start;
+  @include layouts.fixed-header-scrollable-column;
   grid-template-columns: minmax(auto, 400px);
-  grid-template-rows: min-content auto;
 
   a {
     font-size: 1.2rem;

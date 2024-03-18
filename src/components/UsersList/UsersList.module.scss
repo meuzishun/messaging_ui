@@ -1,10 +1,6 @@
 .users-list {
   padding: 20px;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-auto-columns: auto;
   gap: 20px;
-  overflow-y: auto;
   border-top: 2px solid var(--light-grey);
 
   .empty-list {
