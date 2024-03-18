@@ -1,18 +1,26 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import useOnClickOutside from '../../hooks/useOnClickOutside';
 import styles from './Nav.module.scss';
 import MenuBtn from '../MenuBtn/MenuBtn';
 import NavLinks from '../NavLinks/NavLinks';
 
 function Nav({ navLinks }) {
   const [showLinks, setShowLinks] = useState(false);
+  const nav = useRef();
 
   const handleNavClick = () => {
     setShowLinks(!showLinks);
   };
 
+  const closeLinks = () => {
+    setShowLinks(false);
+  };
+
+  useOnClickOutside(nav, closeLinks);
+
   return (
-    <nav className={styles.nav} onClick={handleNavClick}>
+    <nav className={styles.nav} onClick={handleNavClick} ref={nav}>
       <MenuBtn showLinks={showLinks} />
       <NavLinks
         showLinks={showLinks}
