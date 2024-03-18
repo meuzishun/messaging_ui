@@ -14,7 +14,11 @@ function Nav({ navLinks }) {
   return (
     <nav className={styles.nav} onClick={handleNavClick}>
       <MenuBtn showLinks={showLinks} />
-      <NavLinks showLinks={showLinks} navLinks={navLinks} />
+      <NavLinks
+        showLinks={showLinks}
+        navLinks={navLinks}
+        setShowLinks={setShowLinks}
+      />
     </nav>
   );
 }
