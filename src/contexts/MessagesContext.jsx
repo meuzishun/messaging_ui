@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import { createContext, useEffect, useReducer } from 'react';
 import useAuth from '../hooks/useAuth';
-import useLoadingModal from '../hooks/useLoadingModal';
 import { getToken } from '../services/localStorage';
 import {
   getMessagesWithToken,
@@ -142,13 +141,10 @@ function MessagesProvider({ children }) {
     initialMessagesState
   );
 
-  const { setShowLoadingModal } = useLoadingModal();
-
   const getMessages = async () => {
     dispatch({
       type: LOAD,
     });
-    setShowLoadingModal(true);
     const token = getToken();
     const response = await getMessagesWithToken(token);
     const data = await response.json();
@@ -158,7 +154,6 @@ function MessagesProvider({ children }) {
         conversations: data.messages,
       },
     });
-    setShowLoadingModal(false);
   };
 
   const displayConversation = (conversation) => {
