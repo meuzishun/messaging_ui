@@ -17,9 +17,11 @@
   }
 
   button {
-    background-color: var(--soft-blue);
-    color: #fff;
-    font-size: 1rem;
-    border-radius: 40px;
+    padding: 0;
+    display: grid;
+    place-content: center center;
+    background-color: transparent;
+    color: var(--soft-blue);
+    font-size: 1.5rem;
   }
 }

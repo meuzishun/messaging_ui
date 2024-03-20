@@ -1,5 +1,6 @@
 import { useRef, useEffect } from 'react';
 import useMessages from '../../hooks/useMessages';
+import { BsSend } from 'react-icons/bs';
 import styles from './NewMessageInput.module.scss';
 
 function NewMessageInput() {
@@ -46,7 +47,9 @@ function NewMessageInput() {
         type='text'
         ref={inputRef}
       />
-      <button type='submit'>Send</button>
+      <button type='submit'>
+        <BsSend />
+      </button>
     </form>
   );
 }
