@@ -10,7 +10,7 @@ function ConversationsList() {
   const classNames = ['conversations-list'];
 
   if (isLoading) {
-    return <LoadingMsg text='loading' />;
+    return <LoadingMsg text='Loading...' />;
   }
 
   return (
