@@ -1,5 +1,6 @@
 .add-participant {
   position: relative;
+  margin: auto auto;
 
   .add-icon {
     justify-self: flex-end;
@@ -20,14 +21,5 @@
     padding: 20px;
     background-color: var(--white);
     box-shadow: 5px 10px 10px 5px var(--soft-blue-shadow);
-
-    // .friend {
-    //   display: flex;
-    //   justify-content: space-between;
-
-    //   p {
-    //     font-size: 1.2rem;
-    //   }
-    // }
   }
 }
