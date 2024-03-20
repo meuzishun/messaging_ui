@@ -14,7 +14,7 @@ function UsersList() {
   const filteredUsers = filterUserAndFriends(userSearchResults, friends, user);
 
   if (isLoading) {
-    return <LoadingMsg text='loading' showIcon={false} />;
+    return <LoadingMsg text='Loading...' showIcon={false} />;
   }
 
   return (
