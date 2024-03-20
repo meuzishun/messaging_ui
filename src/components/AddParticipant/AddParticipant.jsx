@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import useMessages from '../../hooks/useMessages';
 import useFriends from '../../hooks/useFriends';
+import useOnClickOutside from '../../hooks/useOnClickOutside';
 import { BsPlusCircle } from 'react-icons/bs';
 import AddSingleParticipant from '../AddSingleParticipant/AddSingleParticipant';
 import styles from './AddParticipant.module.scss';
@@ -9,6 +10,7 @@ function AddParticipant() {
   const { newMessage } = useMessages();
   const { friends } = useFriends();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const container = useRef(null);
 
   const participantIds = newMessage.participants.map(
     (participant) => participant._id
@@ -18,12 +20,18 @@ function AddParticipant() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleOutsideClick = () => {
+    setIsMenuOpen(false);
+  };
+
+  useOnClickOutside(container, handleOutsideClick);
+
   if (newMessage?.parentId) {
     return null;
   }
 
   return (
-    <div className={styles['add-participant']}>
+    <div className={styles['add-participant']} ref={container}>
       <div className={styles['add-icon']} onClick={handleAddClick}>
         <BsPlusCircle />
       </div>
