@@ -18,20 +18,20 @@ const userSearchReducer = (state, action) => {
     case LOADING:
       return {
         ...state,
-        loading: true,
+        isLoading: true,
       };
 
     case RESULTS:
       return {
         ...state,
-        loading: false,
+        isLoading: false,
         userSearchResults: action.payload.users,
       };
 
     case ERROR:
       return {
         ...state,
-        loading: false,
+        isLoading: false,
         error: action.payload.error,
       };
 

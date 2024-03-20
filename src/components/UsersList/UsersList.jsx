@@ -14,12 +14,12 @@ function UsersList() {
   const filteredUsers = filterUserAndFriends(userSearchResults, friends, user);
 
   if (isLoading) {
-    return <LoadingMsg text='loading' />;
+    return <LoadingMsg text='loading' showIcon={false} />;
   }
 
   return (
     <div className={styles['users-list']}>
-      {filteredUsers.length > 0 ? (
+      {!isLoading && filteredUsers?.length > 0 ? (
         filteredUsers.map((user) => <User key={user._id} user={user} />)
       ) : (
         <p className={styles['empty-list']}>No results</p>
