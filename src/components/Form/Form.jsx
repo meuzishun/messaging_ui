@@ -44,7 +44,10 @@ function Form({ onSubmit, children }) {
 
 Form.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  children: PropTypes.array.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
 };
 
 export default Form;

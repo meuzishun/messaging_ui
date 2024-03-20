@@ -223,7 +223,10 @@ function ProfileProvider({ children }) {
 }
 
 ProfileProvider.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
 };
 
 export { ProfileProvider, ProfileContext };
