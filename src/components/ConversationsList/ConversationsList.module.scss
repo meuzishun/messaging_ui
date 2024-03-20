@@ -4,16 +4,4 @@
   height: 100%;
   padding: 20px;
   gap: 10px;
-
-  .loading-msg {
-    text-align: center;
-    color: var(--soft_blue);
-    @include animations.pulse;
-  }
-
-  .msg {
-    text-align: center;
-    font-style: italic;
-    color: var(--almost-black);
-  }
 }
