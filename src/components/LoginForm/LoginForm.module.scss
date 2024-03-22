@@ -14,4 +14,18 @@
   h2 {
     font-weight: normal;
   }
+
+  .link {
+    justify-self: center;
+    font-size: 0.8rem;
+
+    a {
+      text-decoration: none;
+
+      &:visited,
+      &:active {
+        color: var(--soft-blue);
+      }
+    }
+  }
 }

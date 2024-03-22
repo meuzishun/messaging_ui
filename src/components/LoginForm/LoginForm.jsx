@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Form from '../Form/Form';
 import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
@@ -60,6 +60,9 @@ function LoginForm() {
         ))}
         {error && <p>{error.message}</p>}
         <Button type='submit' textContent='login' classNames={['btn']} />
+        <p className={styles['link']}>
+          Don&apos;t have an account? <Link to='/register'>Click here</Link>
+        </p>
       </Form>
     </div>
   );

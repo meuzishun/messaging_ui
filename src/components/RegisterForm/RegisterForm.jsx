@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Form from '../Form/Form';
 import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
@@ -63,6 +63,9 @@ function RegisterForm() {
         {/* {isLoading && <LoadingMsg text='Submitting...' />} */}
         {error && <p>{error.message}</p>}
         <Button type='submit' textContent='sign up' classNames={['btn']} />
+        <p className={styles['link']}>
+          Already have an account? <Link to='/login'>Click here</Link>
+        </p>
       </Form>
     </div>
   );
