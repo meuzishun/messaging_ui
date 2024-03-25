@@ -7,13 +7,11 @@ const router = createBrowserRouter(routes, { basename: '/' });
 
 function App() {
   return (
-    <>
-      <LoadingModalProvider>
-        <AuthProvider>
-          <RouterProvider router={router} />
-        </AuthProvider>
-      </LoadingModalProvider>
-    </>
+    <LoadingModalProvider>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </LoadingModalProvider>
   );
 }
 
