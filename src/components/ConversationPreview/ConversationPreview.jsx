@@ -44,7 +44,7 @@ function ConversationPreview({ conversation }) {
 }
 
 ConversationPreview.propTypes = {
-  conversation: PropTypes.array,
+  conversation: PropTypes.array.isRequired,
 };
 
 export default ConversationPreview;
