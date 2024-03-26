@@ -1,8 +1,8 @@
-import styles from './Header.module.scss';
-import Nav from '../Nav/Nav';
-import Heading from '../Heading/Heading';
 import { preAuthNavLinks, postAuthNavLinks } from '../../constants/navLinks';
 import useAuth from '../../hooks/useAuth';
+import Heading from '../Heading/Heading';
+import Nav from '../Nav/Nav';
+import styles from './Header.module.scss';
 
 function Header() {
   const { isAuthenticated } = useAuth();
