@@ -62,12 +62,10 @@ function AuthProvider({ children }) {
   const { setShowLoadingModal } = useLoadingModal();
 
   const initialize = async () => {
-    console.log('Auth initializing...');
     setShowLoadingModal(true);
     const token = getToken();
 
     if (!token) {
-      console.log('No token');
       dispatch({
         type: INITIALIZE,
         payload: {
@@ -82,7 +80,6 @@ function AuthProvider({ children }) {
     const response = await getProfileWithToken(token);
 
     if (!response.ok) {
-      console.log('Something went wrong');
       dispatch({
         type: INITIALIZE,
         payload: {
@@ -108,12 +105,12 @@ function AuthProvider({ children }) {
   };
 
   const register = async (formData) => {
-    console.log('Registering...');
     setShowLoadingModal(true);
     const response = await postRegisterData(formData);
     const data = await response.json();
 
     if (!response.ok) {
+      setShowLoadingModal(false);
       throw new Error(data.message);
     }
 
@@ -129,12 +126,12 @@ function AuthProvider({ children }) {
   };
 
   const login = async (formData) => {
-    console.log('Logging in...');
     setShowLoadingModal(true);
     const response = await postLoginData(formData);
     const data = await response.json();
 
     if (!response.ok) {
+      setShowLoadingModal(false);
       throw new Error(data.message);
     }
 
@@ -150,7 +147,6 @@ function AuthProvider({ children }) {
   };
 
   const logout = () => {
-    console.log('Logging out...');
     setShowLoadingModal(true);
     clearUserDataAndToken();
 
