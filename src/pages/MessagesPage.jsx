@@ -1,13 +1,11 @@
-import MessagesDashboard from '../components/MessagesDashboard/MessagesDashboard';
 import { MessagesProvider } from '../contexts/MessagesContext';
+import MessagesDashboard from '../components/MessagesDashboard/MessagesDashboard';
 
 function MessagesPage() {
   return (
-    <>
-      <MessagesProvider>
-        <MessagesDashboard />
-      </MessagesProvider>
-    </>
+    <MessagesProvider>
+      <MessagesDashboard />
+    </MessagesProvider>
   );
 }
 
