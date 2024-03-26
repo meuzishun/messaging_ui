@@ -219,7 +219,7 @@ function MessagesProvider({ children }) {
   };
 
   const sendNewMsg = async () => {
-    dispatch({ type: LOAD }); //! This is setting isLoading to true
+    dispatch({ type: LOAD });
 
     const token = getToken();
     const postResponse = await postMessageWithTokenAndData(
@@ -247,7 +247,7 @@ function MessagesProvider({ children }) {
     );
 
     dispatch({
-      type: SELECT_CONVERSATION, //! This is setting isAnimating to true
+      type: SELECT_CONVERSATION,
       payload: {
         conversation: foundConvo,
       },
@@ -256,10 +256,6 @@ function MessagesProvider({ children }) {
     dispatch({
       type: ANIMATION_END,
     });
-  };
-
-  const printMessagesState = () => {
-    console.table(messagesState);
   };
 
   useEffect(() => {
@@ -279,7 +275,6 @@ function MessagesProvider({ children }) {
         addNewMsgParticipant,
         removeNewMsgParticipant,
         sendNewMsg,
-        printMessagesState,
       }}
     >
       {children}
