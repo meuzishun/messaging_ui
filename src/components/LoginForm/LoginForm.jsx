@@ -1,11 +1,11 @@
+import { loginInputFields } from '../../constants/inputFields';
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth.jsx';
 import Form from '../Form/Form';
 import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
 import styles from './LoginForm.module.scss';
-import { loginInputFields } from '../../constants/inputFields';
-import useAuth from '../../hooks/useAuth.jsx';
 
 function LoginForm() {
   const [error, setError] = useState(null);
@@ -31,10 +31,6 @@ function LoginForm() {
   };
 
   useEffect(() => {
-    inputRefs.email.current.focus();
-  }, []);
-
-  useEffect(() => {
     if (error?.message.includes('email') || error?.message.includes('User')) {
       inputRefs.email.current.select();
     }
@@ -43,6 +39,10 @@ function LoginForm() {
       inputRefs.password.current.focus();
     }
   }, [error]);
+
+  useEffect(() => {
+    inputRefs.email.current.focus();
+  }, []);
 
   return (
     <div className={styles['login-form']}>
