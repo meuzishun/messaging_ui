@@ -1,11 +1,11 @@
+import { registerInputFields } from '../../constants/inputFields.js';
 import { useRef, useEffect, useState } from 'react';
+import useAuth from '../../hooks/useAuth.jsx';
 import { useNavigate, Link } from 'react-router-dom';
 import Form from '../Form/Form';
 import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
 import styles from './RegisterForm.module.scss';
-import { registerInputFields } from '../../constants/inputFields.js';
-import useAuth from '../../hooks/useAuth.jsx';
 
 function RegisterForm() {
   const [error, setError] = useState(null);
@@ -33,10 +33,6 @@ function RegisterForm() {
   };
 
   useEffect(() => {
-    inputRefs.firstName.current.focus();
-  }, []);
-
-  useEffect(() => {
     if (error?.message.includes('email') || error?.message.includes('User')) {
       inputRefs.email.current.select();
     }
@@ -45,6 +41,10 @@ function RegisterForm() {
       inputRefs.password.current.focus();
     }
   }, [error]);
+
+  useEffect(() => {
+    inputRefs.firstName.current.focus();
+  }, []);
 
   return (
     <div className={styles['register-form']}>
@@ -60,7 +60,6 @@ function RegisterForm() {
             forwardedRef={inputRefs[field.name]}
           />
         ))}
-        {/* {isLoading && <LoadingMsg text='Submitting...' />} */}
         {error && <p>{error.message}</p>}
         <Button type='submit' textContent='sign up' classNames={['btn']} />
         <p className={styles['link']}>
