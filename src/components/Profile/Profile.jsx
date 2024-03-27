@@ -6,6 +6,8 @@ import styles from './Profile.module.scss';
 function Profile() {
   const { profile, isEdited, saveProfile, revertProfile } = useProfile();
 
+  const excludedProps = ['_id', '__v', 'friends'];
+
   if (!profile) {
     return null;
   }
@@ -13,13 +15,14 @@ function Profile() {
   return (
     <div className={styles['profile']}>
       <h2>Profile</h2>
-      {Object.entries(profile)
-        .filter(
-          ([label]) => label !== '_id' && label !== '__v' && label !== 'friends'
-        )
-        .map(([label, content], i) => (
-          <ProfileField key={i} label={label} content={content} />
-        ))}
+      {Object.entries(profile).reduce((results, [label, content], i) => {
+        if (!excludedProps.includes(label)) {
+          results.push(
+            <ProfileField key={i} label={label} content={content} />
+          );
+        }
+        return results;
+      }, [])}
       {isEdited ? (
         <div className={styles['btn-container']}>
           <Button
