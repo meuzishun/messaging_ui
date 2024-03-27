@@ -12,13 +12,9 @@
     padding: 0;
     justify-self: start;
     grid-area: btn;
+    display: grid;
+    place-items: center center;
     background-color: transparent;
-
-    .symbol {
-      font-size: 1.5rem;
-      display: grid;
-      place-items: center center;
-    }
   }
 
   .add-icon {
@@ -28,7 +24,9 @@
 }
 
 @media (min-width: 800px) {
-  .back-btn {
-    display: none;
+  .conversation-header {
+    .back-btn {
+      display: none;
+    }
   }
 }

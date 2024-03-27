@@ -1,9 +1,9 @@
 import useMessages from '../../hooks/useMessages';
+import { FriendsProvider } from '../../contexts/FriendsContext';
 import { BsArrowLeft } from 'react-icons/bs';
 import Participants from '../Participants/Participants';
-import styles from './ConversationHeader.module.scss';
 import AddParticipant from '../AddParticipant/AddParticipant';
-import { FriendsProvider } from '../../contexts/FriendsContext';
+import styles from './ConversationHeader.module.scss';
 
 function ConversationHeader() {
   const { displayPreviews } = useMessages();
@@ -11,9 +11,7 @@ function ConversationHeader() {
   return (
     <div className={styles['conversation-header']}>
       <button className={styles['back-btn']} onClick={displayPreviews}>
-        <span className={styles['symbol']}>
-          <BsArrowLeft />
-        </span>
+        <BsArrowLeft />
       </button>
       <Participants />
       <FriendsProvider>
