@@ -1,6 +1,5 @@
-import { BsArrowClockwise } from 'react-icons/bs';
-
 import PropTypes from 'prop-types';
+import { BsArrowClockwise } from 'react-icons/bs';
 import styles from './LoadingMsg.module.scss';
 
 function LoadingMsg({ text, showIcon = true }) {
