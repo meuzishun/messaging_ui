@@ -143,10 +143,6 @@ function ProfileProvider({ children }) {
   };
 
   const saveProfile = async () => {
-    setShowLoadingModal(true);
-    dispatch({
-      type: LOAD,
-    });
     const token = getToken();
     const response = await editProfileWithTokenAndData(
       token,
@@ -161,7 +157,6 @@ function ProfileProvider({ children }) {
           error: data.message,
         },
       });
-      setShowLoadingModal(false);
       return;
     }
 
@@ -171,14 +166,9 @@ function ProfileProvider({ children }) {
         profile: data.user,
       },
     });
-    setShowLoadingModal(false);
   };
 
   const revertProfile = async () => {
-    setShowLoadingModal(true);
-    dispatch({
-      type: LOAD,
-    });
     const token = getToken();
     const response = await getProfileWithToken(token);
     const data = await response.json();
@@ -190,7 +180,6 @@ function ProfileProvider({ children }) {
           error: data.message,
         },
       });
-      setShowLoadingModal(false);
       return;
     }
 
@@ -200,7 +189,6 @@ function ProfileProvider({ children }) {
         profile: data.user,
       },
     });
-    setShowLoadingModal(false);
   };
 
   useEffect(() => {
