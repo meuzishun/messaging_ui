@@ -7,31 +7,31 @@ import {
   deleteFriendWithTokenAndId,
 } from '../services/api.js';
 
-const INITIALIZE = 'INITIALIZE';
 const LOAD = 'LOAD';
+const INITIALIZE = 'INITIALIZE';
 const ADD = 'ADD';
 const REMOVE = 'REMOVE';
 
 const initialFriendsState = {
-  isInitialized: false,
   isLoading: false,
+  isInitialized: false,
   friends: null,
 };
 
 const friendsReducer = (state, action) => {
   switch (action.type) {
-    case INITIALIZE:
-      return {
-        ...state,
-        isInitialized: true,
-        isLoading: false,
-        friends: action.payload.friends,
-      };
-
     case LOAD:
       return {
         ...state,
         isLoading: true,
+      };
+
+    case INITIALIZE:
+      return {
+        ...state,
+        isLoading: false,
+        isInitialized: true,
+        friends: action.payload.friends,
       };
 
     case ADD:
@@ -76,8 +76,6 @@ function FriendsProvider({ children }) {
   };
 
   const addFriend = async (id) => {
-    dispatch({ type: LOAD });
-
     const token = getToken();
     const response = await addFriendWithTokenAndId(token, id);
     const data = await response.json();
@@ -90,8 +88,6 @@ function FriendsProvider({ children }) {
   };
 
   const removeFriend = async (id) => {
-    dispatch({ type: LOAD });
-
     const token = getToken();
     const response = await deleteFriendWithTokenAndId(token, id);
     const data = await response.json();
