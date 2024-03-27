@@ -14,11 +14,14 @@ function Participants() {
     <>
       <span className={styles['to-text']}>To:</span>
       <div className={styles['participants-list']}>
-        {participants
-          .filter((participant) => participant._id !== user._id)
-          .map((participant) => (
-            <Participant participant={participant} key={participant._id} />
-          ))}
+        {participants.reduce((results, participant) => {
+          if (participant._id !== user._id) {
+            results.push(
+              <Participant participant={participant} key={participant._id} />
+            );
+          }
+          return results;
+        }, [])}
       </div>
     </>
   );
