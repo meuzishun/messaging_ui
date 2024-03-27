@@ -12,9 +12,7 @@ function NewMessageInput() {
     newMessage,
     editNewMsgContent,
     sendNewMsg,
-    // printMessagesState,
   } = useMessages();
-  // printMessagesState();
 
   const handleInput = (e) => {
     editNewMsgContent(e.target.value);
@@ -24,7 +22,6 @@ function NewMessageInput() {
     e.preventDefault();
     sendNewMsg();
     editNewMsgContent('');
-    // printMessagesState();
   };
 
   useEffect(() => {
@@ -38,8 +35,6 @@ function NewMessageInput() {
   }, [isAnimating, viewConversation]);
 
   return (
-    //? Should we try and use Form component?
-    //? What about FormInput and Button components?
     <form className={styles['new-msg-input']} onSubmit={handleSubmit}>
       <input
         value={newMessage.content}
