@@ -29,7 +29,7 @@ function AddParticipant() {
       <div className={styles['add-icon']} onClick={handleAddClick}>
         <BsPlusCircle />
       </div>
-      <ParticipantPopupMenu isMenuOpen={isMenuOpen} />
+      {isMenuOpen && <ParticipantPopupMenu />}
     </div>
   );
 }
