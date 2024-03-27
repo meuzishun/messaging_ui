@@ -25,6 +25,7 @@
     text-align: center;
     color: var(--soft-blue);
     font-style: italic;
+    text-transform: capitalize;
     @include animations.pulse;
   }
 }
