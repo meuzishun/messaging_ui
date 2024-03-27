@@ -12,10 +12,12 @@ function AddSingleParticipant({ participant }) {
 
   return (
     <div className={styles['participant']}>
-      <p>
+      <p className={styles['name']}>
         {participant.firstName} {participant.lastName}
       </p>
-      <BsPlusCircle onClick={handleAddParticipant} />
+      <button className={styles['button']}>
+        <BsPlusCircle onClick={handleAddParticipant} />
+      </button>
     </div>
   );
 }
