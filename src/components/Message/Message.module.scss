@@ -1,8 +1,4 @@
 .message {
-  &.user {
-    justify-self: end;
-  }
-
   .author {
     font-size: 0.8rem;
     margin: 0 15px;
@@ -16,8 +12,12 @@
     padding: 10px 15px;
     border-radius: 20px;
     margin-bottom: 10px;
+  }
 
-    &.user {
+  &.user {
+    justify-self: end;
+
+    .content {
       background-color: var(--soft-blue);
     }
   }

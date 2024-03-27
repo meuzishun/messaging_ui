@@ -7,14 +7,12 @@ import styles from './Message.module.scss';
 function Message({ message }) {
   const { user } = useAuth();
 
-  const contentClassNames = ['content'];
   const messageClassNames = ['message'];
 
   const userIsAuthor = message.author._id === user._id;
 
   if (userIsAuthor) {
     messageClassNames.push('user');
-    contentClassNames.push('user');
   }
 
   return (
@@ -22,7 +20,7 @@ function Message({ message }) {
       {message.participants.length < 3 ? null : userIsAuthor ? null : (
         <p className={styles['author']}>{message.author.firstName}</p>
       )}
-      <p className={formatClassNames(styles, contentClassNames)}>
+      <p className={styles['content']}>
         {convertHtmlEntitiesToText(message.content)}
       </p>
     </div>
