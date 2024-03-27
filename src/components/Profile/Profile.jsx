@@ -1,10 +1,10 @@
 import useProfile from '../../hooks/useProfile';
 import ProfileField from '../ProfileField/ProfileField';
-import Button from '../Button/Button';
+import ProfileEditButtons from '../ProfileEditButtons/ProfileEditButtons';
 import styles from './Profile.module.scss';
 
 function Profile() {
-  const { profile, isEdited, saveProfile, revertProfile } = useProfile();
+  const { profile, isEdited } = useProfile();
 
   const excludedProps = ['_id', '__v', 'friends'];
 
@@ -23,22 +23,7 @@ function Profile() {
         }
         return results;
       }, [])}
-      {isEdited ? (
-        <div className={styles['btn-container']}>
-          <Button
-            type='button'
-            textContent='save'
-            clickHandler={saveProfile}
-            classNames={['btn', 'btn-submit']}
-          />
-          <Button
-            type='button'
-            textContent='undo'
-            clickHandler={revertProfile}
-            classNames={['btn']}
-          />
-        </div>
-      ) : null}
+      {isEdited && <ProfileEditButtons />}
     </div>
   );
 }
