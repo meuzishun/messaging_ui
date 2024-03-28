@@ -1,7 +1,7 @@
-import Button from '../Button/Button';
-import styles from './LogoutConfirm.module.scss';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import Button from '../Button/Button';
+import styles from './LogoutConfirm.module.scss';
 
 function LogoutConfirm() {
   const { logout } = useAuth();
