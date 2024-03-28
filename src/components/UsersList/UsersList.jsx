@@ -19,7 +19,7 @@ function UsersList() {
 
   return (
     <div className={styles['users-list']}>
-      {!isLoading && filteredUsers?.length > 0 ? (
+      {filteredUsers?.length > 0 ? (
         filteredUsers.map((user) => <User key={user._id} user={user} />)
       ) : (
         <p className={styles['empty-list']}>No results</p>
