@@ -3,8 +3,8 @@ import { createContext, useReducer } from 'react';
 import { getToken } from '../services/localStorage.js';
 import { searchUsersWithTokenAndStr } from '../services/api.js';
 
-const LOADING = 'LOADING';
-const RESULTS = 'RESULTS';
+const LOAD = 'LOAD';
+const INITIALIZE = 'INITIALIZE';
 const ERROR = 'ERROR';
 
 const initialUsersState = {
@@ -15,13 +15,13 @@ const initialUsersState = {
 
 const userSearchReducer = (state, action) => {
   switch (action.type) {
-    case LOADING:
+    case LOAD:
       return {
         ...state,
         isLoading: true,
       };
 
-    case RESULTS:
+    case INITIALIZE:
       return {
         ...state,
         isLoading: false,
@@ -48,7 +48,7 @@ function UserSearchProvider({ children }) {
   const searchUsers = async (str) => {
     if (str.length === 0) {
       dispatch({
-        type: RESULTS,
+        type: INITIALIZE,
         payload: {
           users: [],
         },
@@ -57,14 +57,14 @@ function UserSearchProvider({ children }) {
     }
 
     dispatch({
-      type: LOADING,
+      type: LOAD,
     });
     const token = getToken();
     const response = await searchUsersWithTokenAndStr(token, str);
     const data = await response.json();
 
     dispatch({
-      type: RESULTS,
+      type: INITIALIZE,
       payload: {
         users: data.users,
       },
