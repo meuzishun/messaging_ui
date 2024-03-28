@@ -24,7 +24,6 @@ function Friend({ friend }) {
 
 Friend.propTypes = {
   friend: PropTypes.object,
-  removeFriend: PropTypes.func,
 };
 
 export default Friend;
