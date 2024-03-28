@@ -8,7 +8,6 @@ function LogoutConfirm() {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    console.log('Logout btn clicked...');
     logout();
     navigate('/');
   };
