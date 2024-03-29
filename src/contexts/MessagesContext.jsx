@@ -73,7 +73,7 @@ function MessagesProvider({ children }) {
           ...state,
           selectedConversation: state.viewConversation
             ? state.selectedConversation
-            : false,
+            : null,
           newMessage: state.viewConversation ? state.newMessage : null,
           isAnimating: false,
         };
