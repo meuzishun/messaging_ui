@@ -1,5 +1,4 @@
 import useMessages from '../../hooks/useMessages';
-import { FriendsProvider } from '../../contexts/FriendsContext';
 import { BsArrowLeft } from 'react-icons/bs';
 import Participants from '../Participants/Participants';
 import AddParticipant from '../AddParticipant/AddParticipant';
@@ -14,9 +13,7 @@ function ConversationHeader() {
         <BsArrowLeft />
       </button>
       <Participants />
-      <FriendsProvider>
-        <AddParticipant />
-      </FriendsProvider>
+      <AddParticipant />
     </div>
   );
 }
