@@ -17,6 +17,24 @@ export const routes = [
     children: [
       {
         path: '',
+        element: <GuestGuard />,
+        children: [
+          {
+            index: true,
+            element: <WelcomePage />,
+          },
+          {
+            path: 'register',
+            element: <RegisterPage />,
+          },
+          {
+            path: 'login',
+            element: <LoginPage />,
+          },
+        ],
+      },
+      {
+        path: '',
         element: <AuthGuard />,
         children: [
           {
@@ -38,24 +56,6 @@ export const routes = [
           {
             path: 'logout',
             element: <LogoutPage />,
-          },
-        ],
-      },
-      {
-        path: '',
-        element: <GuestGuard />,
-        children: [
-          {
-            index: true,
-            element: <WelcomePage />,
-          },
-          {
-            path: 'register',
-            element: <RegisterPage />,
-          },
-          {
-            path: 'login',
-            element: <LoginPage />,
           },
         ],
       },
