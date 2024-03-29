@@ -19,10 +19,7 @@ function ConversationPreview({ conversation }) {
   const participantsNames = getParticipantNames(conversation, user);
   const classNames = ['conversation-preview'];
 
-  if (
-    selectedConversation &&
-    selectedConversation[0]._id === conversation[0]._id
-  ) {
+  if (JSON.stringify(selectedConversation) === JSON.stringify(conversation)) {
     classNames.push('selected');
   }
 
