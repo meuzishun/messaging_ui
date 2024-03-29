@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import styles from './Button.module.scss';
 import { formatClassNames } from '../../lib/formatClassNames';
+import styles from './Button.module.scss';
 
 function Button({ type, textContent, clickHandler, classNames }) {
   return (
