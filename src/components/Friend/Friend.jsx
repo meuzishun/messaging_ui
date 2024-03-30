@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import useFriends from '../../hooks/useFriends';
-import { BsFillXCircleFill } from 'react-icons/bs';
+import { BsChatText, BsFillPersonXFill } from 'react-icons/bs';
 import styles from './Friend.module.scss';
 
 function Friend({ friend }) {
@@ -12,11 +12,15 @@ function Friend({ friend }) {
 
   return (
     <div className={styles['friend']}>
-      <p>
-        {friend.firstName} {friend.lastName}
+      <p key={friend._id} className={styles['friend-name']}>
+        {friend.firstName} {friend.lastName}{' '}
+        <span className={styles['email']}>{friend.email}</span>
       </p>
-      <button onClick={handleRemoveBtnClick}>
-        <BsFillXCircleFill />
+      <button className={styles['message-btn']}>
+        <BsChatText />
+      </button>
+      <button className={styles['remove-btn']} onClick={handleRemoveBtnClick}>
+        <BsFillPersonXFill />
       </button>
     </div>
   );
