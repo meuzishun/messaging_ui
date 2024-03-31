@@ -1,9 +1,9 @@
 @mixin fade-in {
-  animation: fade-in 1000ms ease-in-out;
+  animation: fade-in 300ms ease-in-out;
 }
 
 @mixin fade-out {
-  animation: fade-out 1000ms ease-in-out;
+  animation: fade-out 300ms ease-in-out;
 }
 
 @mixin pulse {
