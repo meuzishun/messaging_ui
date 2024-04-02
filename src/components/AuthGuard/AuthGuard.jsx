@@ -1,4 +1,6 @@
 import useAuth from '../../hooks/useAuth';
+import { FriendsProvider } from '../../contexts/FriendsContext';
+import { MessagesProvider } from '../../contexts/MessagesContext';
 import { Navigate, Outlet } from 'react-router-dom';
 
 function AuthGuard() {
@@ -10,7 +12,11 @@ function AuthGuard() {
 
   return (
     <>
-      <Outlet />
+      <MessagesProvider>
+        <FriendsProvider>
+          <Outlet />
+        </FriendsProvider>
+      </MessagesProvider>
     </>
   );
 }
