@@ -1,5 +1,3 @@
-@use '../../styles/animations';
-
 .profile {
   display: flex;
   flex-direction: column;
@@ -10,7 +8,6 @@
   background-color: var(--white);
   border-radius: 10px;
   box-shadow: 5px 10px 10px 5px var(--soft-blue-shadow);
-  @include animations.fade-in;
 
   h2 {
     font-size: 2rem;

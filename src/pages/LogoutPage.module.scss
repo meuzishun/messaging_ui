@@ -1,7 +1,4 @@
-@use '../styles/animations';
-
 .logout-page {
   display: grid;
   place-content: center center;
-  @include animations.fade-in;
 }
