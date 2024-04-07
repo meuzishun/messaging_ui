@@ -13,7 +13,7 @@ export default function RootLayout() {
 
   return (
     <div className={styles['root-layout']}>
-      <Header auth={false} />
+      <Header />
       <SwitchTransition>
         <CSSTransition
           key={location.pathname}
