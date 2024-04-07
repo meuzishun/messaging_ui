@@ -12,18 +12,19 @@ function ConversationPreview({ conversation }) {
   const { displayConversation, selectedConversation } = useMessages();
   const { user } = useAuth();
 
+  const conversationIsSelected =
+    JSON.stringify(selectedConversation) === JSON.stringify(conversation);
+  const mostRecentMessage = conversation.at(-1);
+  const participantsNames = getParticipantNames(conversation, user);
+  const classNames = ['conversation-preview'];
+
   const handleConversationClick = () => {
     displayConversation(conversation);
   };
 
-  const participantsNames = getParticipantNames(conversation, user);
-  const classNames = ['conversation-preview'];
-
-  if (JSON.stringify(selectedConversation) === JSON.stringify(conversation)) {
+  if (conversationIsSelected) {
     classNames.push('selected');
   }
-
-  const mostRecentMessage = conversation.at(-1);
 
   return (
     <div
