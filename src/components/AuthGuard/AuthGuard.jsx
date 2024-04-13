@@ -1,6 +1,8 @@
 import useAuth from '../../hooks/useAuth';
 import { FriendsProvider } from '../../contexts/FriendsContext';
 import { MessagesProvider } from '../../contexts/MessagesContext';
+import { DashboardProvider } from '../../contexts/DashboardContext';
+import { NewMessageProvider } from '../../contexts/NewMessageContext';
 import { Navigate, Outlet } from 'react-router-dom';
 
 function AuthGuard() {
@@ -13,9 +15,13 @@ function AuthGuard() {
   return (
     <>
       <MessagesProvider>
-        <FriendsProvider>
-          <Outlet />
-        </FriendsProvider>
+        <DashboardProvider>
+          <FriendsProvider>
+            <NewMessageProvider>
+              <Outlet />
+            </NewMessageProvider>
+          </FriendsProvider>
+        </DashboardProvider>
       </MessagesProvider>
     </>
   );
