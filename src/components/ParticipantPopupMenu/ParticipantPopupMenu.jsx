@@ -1,11 +1,11 @@
-import useMessages from '../../hooks/useMessages';
+import useNewMessage from '../../hooks/useNewMessage';
 import useFriends from '../../hooks/useFriends';
 import AddSingleParticipant from '../AddSingleParticipant/AddSingleParticipant';
 import LoadingMsg from '../LoadingMsg/LoadingMsg';
 import styles from './ParticipantPopupMenu.module.scss';
 
 function ParticipantPopupMenu() {
-  const { newMessage } = useMessages();
+  const { newMessage } = useNewMessage();
   const { friends, isLoading } = useFriends();
 
   const participantIds = newMessage.participants.map(

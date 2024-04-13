@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import useMessages from '../../hooks/useMessages';
+import useNewMessage from '../../hooks/useNewMessage';
 import { BsPlusCircle } from 'react-icons/bs';
 import styles from './AddSingleParticipant.module.scss';
 
 function AddSingleParticipant({ participant }) {
-  const { addNewMsgParticipant } = useMessages();
+  const { addNewMsgParticipant } = useNewMessage();
 
   const handleAddParticipant = () => {
     addNewMsgParticipant(participant);

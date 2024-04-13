@@ -1,12 +1,12 @@
 import { useState, useRef } from 'react';
-import useMessages from '../../hooks/useMessages';
+import useNewMessage from '../../hooks/useNewMessage';
 import useOnClickOutside from '../../hooks/useOnClickOutside';
 import { BsPlusCircle } from 'react-icons/bs';
 import ParticipantPopupMenu from '../ParticipantPopupMenu/ParticipantPopupMenu';
 import styles from './AddParticipant.module.scss';
 
 function AddParticipant() {
-  const { newMessage } = useMessages();
+  const { newMessage } = useNewMessage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const container = useRef(null);
 

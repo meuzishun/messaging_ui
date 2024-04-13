@@ -1,4 +1,4 @@
-import useMessages from '../../hooks/useMessages';
+import useNewMessage from '../../hooks/useNewMessage';
 import useAuth from '../../hooks/useAuth';
 import Participant from '../Participant/Participant';
 import styles from './Participants.module.scss';
@@ -6,7 +6,7 @@ import styles from './Participants.module.scss';
 function Participants() {
   const {
     newMessage: { participants },
-  } = useMessages();
+  } = useNewMessage();
 
   const { user } = useAuth();
 

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import useMessages from '../../hooks/useMessages';
+import useNewMessage from '../../hooks/useNewMessage';
 import { BsXCircleFill } from 'react-icons/bs';
 import styles from './Participant.module.scss';
 
@@ -7,7 +7,7 @@ function Participant({ participant }) {
   const {
     newMessage: { parentId },
     removeNewMsgParticipant,
-  } = useMessages();
+  } = useNewMessage();
 
   const handleRemoveClick = () => {
     console.log(`Removing ${participant.firstName} ${participant.lastName}`);
