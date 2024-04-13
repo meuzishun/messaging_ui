@@ -1,14 +1,20 @@
 import useMessages from '../../hooks/useMessages';
+import useDashboard from '../../hooks/useDashboard';
 import Message from '../Message/Message';
 import styles from './MessagesContainer.module.scss';
 
 function MessagesContainer() {
-  const { selectedConversation } = useMessages();
+  const { conversations } = useMessages();
+  const { selectedId } = useDashboard();
+
+  const conversation = conversations.find(
+    (conversation) => conversation[0]._id === selectedId
+  );
 
   return (
     <div className={styles['messages-container']}>
-      {selectedConversation.length > 0
-        ? selectedConversation.map((message) => (
+      {conversation?.length > 0
+        ? conversation.map((message) => (
             <Message key={message._id} message={message} />
           ))
         : null}
