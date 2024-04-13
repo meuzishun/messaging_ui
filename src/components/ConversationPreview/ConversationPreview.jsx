@@ -1,28 +1,35 @@
 import PropTypes from 'prop-types';
-import useMessages from '../../hooks/useMessages';
+import useDashboard from '../../hooks/useDashboard';
+import useNewMessage from '../../hooks/useNewMessage';
 import useAuth from '../../hooks/useAuth';
 import { convertHtmlEntitiesToText } from '../../lib/convertHtmlEntitiesToText';
 import { convertListToString } from '../../lib/convertListToString';
 import { formatTimestamp } from '../../lib/formatTimestamp';
 import { formatClassNames } from '../../lib/formatClassNames';
 import { getParticipantNames } from '../../lib/getParticipantNames';
+import { getParticipants } from '../../lib/getParticipants';
 import styles from './ConversationPreview.module.scss';
 
 function ConversationPreview({ conversation }) {
-  const { displayConversation, selectedConversation } = useMessages();
+  const { selectedId, setSelectedId } = useDashboard();
   const { user } = useAuth();
+  const { createNewMsg, editNewMsgParentId, editNewMsgParticipants } =
+    useNewMessage();
 
-  const conversationIsSelected =
-    JSON.stringify(selectedConversation) === JSON.stringify(conversation);
+  const conversationId = conversation[0]._id;
   const mostRecentMessage = conversation.at(-1);
   const participantsNames = getParticipantNames(conversation, user);
+  const isSelected = conversationId === selectedId;
   const classNames = ['conversation-preview'];
 
   const handleConversationClick = () => {
-    displayConversation(conversation);
+    createNewMsg();
+    editNewMsgParentId(mostRecentMessage._id);
+    editNewMsgParticipants(getParticipants(conversation));
+    setSelectedId(conversationId);
   };
 
-  if (conversationIsSelected) {
+  if (isSelected) {
     classNames.push('selected');
   }
 
