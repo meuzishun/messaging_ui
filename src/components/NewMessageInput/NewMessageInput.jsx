@@ -1,27 +1,28 @@
 import { useRef, useEffect } from 'react';
 import useMessages from '../../hooks/useMessages';
+import useDashboard from '../../hooks/useDashboard';
+import useNewMessage from '../../hooks/useNewMessage';
 import { BsSendFill } from 'react-icons/bs';
 import styles from './NewMessageInput.module.scss';
 
 function NewMessageInput() {
   const inputRef = useRef(null);
-
-  const {
-    isAnimating,
-    viewConversation,
-    newMessage,
-    editNewMsgContent,
-    sendNewMsg,
-  } = useMessages();
+  const { sendNewMsg } = useMessages();
+  const { isAnimating, viewConversation, selectedId, setSelectedId } =
+    useDashboard();
+  const { newMessage, editNewMsgContent } = useNewMessage();
 
   const handleInput = (e) => {
     editNewMsgContent(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    sendNewMsg();
     editNewMsgContent('');
+    const res = await sendNewMsg(newMessage);
+    if (!selectedId) {
+      setSelectedId(res.message._id);
+    }
   };
 
   useEffect(() => {
@@ -37,7 +38,7 @@ function NewMessageInput() {
   return (
     <form className={styles['new-msg-input']} onSubmit={handleSubmit}>
       <input
-        value={newMessage.content}
+        value={newMessage?.content}
         onChange={handleInput}
         type='text'
         ref={inputRef}

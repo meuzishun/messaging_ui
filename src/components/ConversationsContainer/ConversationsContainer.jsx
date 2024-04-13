@@ -1,10 +1,17 @@
-import useMessages from '../../hooks/useMessages';
+import useDashboard from '../../hooks/useDashboard';
+import useNewMessage from '../../hooks/useNewMessage';
 import { formatClassNames } from '../../lib/formatClassNames';
 import ConversationsList from '../ConversationsList/ConversationsList';
 import styles from './ConversationsContainer.module.scss';
 
 function ConversationsContainer() {
-  const { viewConversation, createNewMsg } = useMessages();
+  const { setSelectedId, viewConversation } = useDashboard();
+  const { createNewMsg } = useNewMessage();
+
+  const handleNewMsgBtnClick = () => {
+    setSelectedId(null);
+    createNewMsg();
+  };
 
   const classNames = ['conversations-container'];
 
@@ -14,7 +21,7 @@ function ConversationsContainer() {
 
   return (
     <div className={formatClassNames(styles, classNames)}>
-      <button className={styles['new-msg-btn']} onClick={createNewMsg}>
+      <button className={styles['new-msg-btn']} onClick={handleNewMsgBtnClick}>
         new message
       </button>
       <ConversationsList />
