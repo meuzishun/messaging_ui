@@ -1,4 +1,4 @@
-import useMessages from '../../hooks/useMessages';
+import useDashboard from '../../hooks/useDashboard';
 import ConversationHeader from '../ConversationHeader/ConversationHeader';
 import MessagesContainer from '../MessagesContainer/MessagesContainer';
 import NewMessageInput from '../NewMessageInput/NewMessageInput';
@@ -6,8 +6,7 @@ import { formatClassNames } from '../../lib/formatClassNames';
 import styles from './Conversation.module.scss';
 
 function Conversation() {
-  const { selectedConversation, viewConversation, handleTransitionEnd } =
-    useMessages();
+  const { viewConversation, handleTransitionEnd } = useDashboard();
 
   const classNames = ['conversation'];
 
@@ -20,7 +19,7 @@ function Conversation() {
       className={formatClassNames(styles, classNames)}
       onTransitionEnd={handleTransitionEnd}
     >
-      {selectedConversation ? (
+      {viewConversation ? (
         <>
           <ConversationHeader />
           <MessagesContainer />

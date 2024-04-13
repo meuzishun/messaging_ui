@@ -1,11 +1,11 @@
-import useMessages from '../../hooks/useMessages';
+import useDashboard from '../../hooks/useDashboard';
 import { BsArrowLeft } from 'react-icons/bs';
 import Participants from '../Participants/Participants';
 import AddParticipant from '../AddParticipant/AddParticipant';
 import styles from './ConversationHeader.module.scss';
 
 function ConversationHeader() {
-  const { displayPreviews } = useMessages();
+  const { displayPreviews } = useDashboard();
 
   return (
     <div className={styles['conversation-header']}>
