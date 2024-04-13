@@ -9,7 +9,6 @@ import {
 const MessagesContext = createContext(null);
 
 function MessagesProvider({ children }) {
-  console.log('MessagesProvider rendering...');
   const LOAD = 'LOAD';
   const INITIALIZE = 'INITIALIZE';
 
@@ -49,6 +48,7 @@ function MessagesProvider({ children }) {
     const token = getToken();
     const response = await getMessagesWithToken(token);
     const data = await response.json();
+
     dispatch({
       type: INITIALIZE,
       payload: {
@@ -58,14 +58,11 @@ function MessagesProvider({ children }) {
   };
 
   const sendNewMsg = async (message) => {
-    // dispatch({ type: LOAD });
-
     const token = getToken();
-    await postMessageWithTokenAndData(token, message);
-
+    const postResponse = await postMessageWithTokenAndData(token, message);
+    const postData = await postResponse.json();
     const getResponse = await getMessagesWithToken(token);
     const getData = await getResponse.json();
-
     const { messages } = getData;
 
     dispatch({
@@ -74,6 +71,8 @@ function MessagesProvider({ children }) {
         conversations: messages,
       },
     });
+
+    return postData;
   };
 
   useEffect(() => {
