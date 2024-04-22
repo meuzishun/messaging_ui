@@ -1,6 +1,7 @@
 import useMessages from '../../hooks/useMessages';
 import useDashboard from '../../hooks/useDashboard';
 import Message from '../Message/Message';
+import AlwaysScrollToBottom from '../AlwaysScrollToBottom/AlwaysScrollToBottom';
 import styles from './MessagesContainer.module.scss';
 
 function MessagesContainer() {
@@ -18,6 +19,7 @@ function MessagesContainer() {
             <Message key={message._id} message={message} />
           ))
         : null}
+      <AlwaysScrollToBottom />
     </div>
   );
 }
