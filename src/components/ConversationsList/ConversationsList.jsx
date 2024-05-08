@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import useMessages from '../../hooks/useMessages';
 import FadeTransition from '../FadeTransition/FadeTransition';
 import LoadingMsg from '../LoadingMsg/LoadingMsg';
-import ConversationPreview from '../ConversationPreview/ConversationPreview';
+import ConversationPreview from '../../composities/ConversationPreview/ConversationPreview';
 import styles from './ConversationsList.module.scss';
 
 function ConversationsList() {
