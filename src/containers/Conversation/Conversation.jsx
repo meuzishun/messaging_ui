@@ -1,7 +1,7 @@
 import useDashboard from '../../hooks/useDashboard';
-import ConversationHeader from '../ConversationHeader/ConversationHeader';
-import MessagesContainer from '../MessagesContainer/MessagesContainer';
-import NewMessageInput from '../NewMessageInput/NewMessageInput';
+import ConversationHeader from '../../components/ConversationHeader/ConversationHeader';
+import MessagesContainer from '../../components/MessagesContainer/MessagesContainer';
+import NewMessageInput from '../../components/NewMessageInput/NewMessageInput';
 import { formatClassNames } from '../../lib/formatClassNames';
 import styles from './Conversation.module.scss';
 

@@ -1,5 +1,5 @@
 import ConversationsContainer from '../ConversationsContainer/ConversationsContainer';
-import Conversation from '../Conversation/Conversation';
+import Conversation from '../../containers/Conversation/Conversation';
 import styles from './MessagesDashboard.module.scss';
 
 function MessagesDashboard() {
