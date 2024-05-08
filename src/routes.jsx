@@ -8,7 +8,7 @@ import ProfilePage from './pages/ProfilePage';
 import FriendsPage from './pages/FriendsPage';
 import UserSearchPage from './pages/UserSearchPage';
 import LogoutPage from './pages/LogoutPage';
-import AuthGuard from './components/AuthGuard/AuthGuard';
+import AuthGuard from './guards/AuthGuard/AuthGuard';
 import GuestGuard from './components/GuestGuard/GuestGuard';
 
 export const routes = [

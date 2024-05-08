@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import useNewMessage from '../../hooks/useNewMessage';
 import useOnClickOutside from '../../hooks/useOnClickOutside';
 import { BsPlusCircle } from 'react-icons/bs';
-import ParticipantPopupMenu from '../ParticipantPopupMenu/ParticipantPopupMenu';
+import ParticipantPopupMenu from '../../components/ParticipantPopupMenu/ParticipantPopupMenu';
 import styles from './AddParticipant.module.scss';
 
 function AddParticipant() {
