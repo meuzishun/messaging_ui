@@ -1,4 +1,4 @@
-import Friends from '../components/Friends/Friends';
+import Friends from '../features/Friends/Friends';
 
 function FriendsPage() {
   return (
