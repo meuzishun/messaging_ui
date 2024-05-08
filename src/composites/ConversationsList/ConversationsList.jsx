@@ -1,8 +1,8 @@
 import { useRef } from 'react';
 import useMessages from '../../hooks/useMessages';
-import FadeTransition from '../FadeTransition/FadeTransition';
-import LoadingMsg from '../LoadingMsg/LoadingMsg';
-import ConversationPreview from '../../composities/ConversationPreview/ConversationPreview';
+import FadeTransition from '../../components/FadeTransition/FadeTransition';
+import LoadingMsg from '../../components/LoadingMsg/LoadingMsg';
+import ConversationPreview from '../ConversationPreview/ConversationPreview';
 import styles from './ConversationsList.module.scss';
 
 function ConversationsList() {

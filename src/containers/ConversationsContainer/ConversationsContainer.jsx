@@ -1,7 +1,7 @@
 import useDashboard from '../../hooks/useDashboard';
 import useNewMessage from '../../hooks/useNewMessage';
 import { formatClassNames } from '../../lib/formatClassNames';
-import ConversationsList from '../../components/ConversationsList/ConversationsList';
+import ConversationsList from '../../composites/ConversationsList/ConversationsList';
 import styles from './ConversationsContainer.module.scss';
 
 function ConversationsContainer() {

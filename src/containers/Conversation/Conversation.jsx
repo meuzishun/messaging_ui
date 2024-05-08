@@ -1,5 +1,5 @@
 import useDashboard from '../../hooks/useDashboard';
-import ConversationHeader from '../../composities/ConversationHeader/ConversationHeader';
+import ConversationHeader from '../../composites/ConversationHeader/ConversationHeader';
 import MessagesContainer from '../../components/MessagesContainer/MessagesContainer';
 import NewMessageInput from '../../components/NewMessageInput/NewMessageInput';
 import { formatClassNames } from '../../lib/formatClassNames';
