@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import FriendsList from '../../components/FriendsList/FriendsList';
+import FriendsList from '../../containers/FriendsList/FriendsList';
 import styles from './Friends.module.scss';
 
 function Friends() {

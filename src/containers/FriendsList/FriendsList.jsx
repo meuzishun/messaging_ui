@@ -1,8 +1,8 @@
 import { useRef } from 'react';
 import useFriends from '../../hooks/useFriends';
-import FadeTransition from '../FadeTransition/FadeTransition';
-import LoadingMsg from '../LoadingMsg/LoadingMsg';
-import Friend from '../Friend/Friend';
+import FadeTransition from '../../components/FadeTransition/FadeTransition';
+import LoadingMsg from '../../components/LoadingMsg/LoadingMsg';
+import Friend from '../../components/Friend/Friend';
 import styles from './FriendsList.module.scss';
 
 function FriendsList() {
