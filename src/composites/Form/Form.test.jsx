@@ -2,8 +2,8 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, test, expect, beforeEach, vi } from 'vitest';
 import Form from './Form';
-import FormInput from '../FormInput/FormInput';
-import Button from '../Button/Button';
+import FormInput from '../../components/FormInput/FormInput';
+import Button from '../../components/Button/Button';
 
 describe('Form component', () => {
   const onSubmit = vi.fn();

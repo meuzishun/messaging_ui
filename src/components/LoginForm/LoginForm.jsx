@@ -2,7 +2,7 @@ import { loginInputFields } from '../../constants/inputFields';
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth.jsx';
-import Form from '../Form/Form';
+import Form from '../../composites/Form/Form';
 import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
 import styles from './LoginForm.module.scss';
