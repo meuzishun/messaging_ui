@@ -9,7 +9,7 @@ import FriendsPage from './pages/FriendsPage';
 import UserSearchPage from './pages/UserSearchPage';
 import LogoutPage from './pages/LogoutPage';
 import AuthGuard from './guards/AuthGuard/AuthGuard';
-import GuestGuard from './components/GuestGuard/GuestGuard';
+import GuestGuard from './guards/GuestGuard/GuestGuard';
 
 export const routes = [
   {
