@@ -1,4 +1,4 @@
-import ConversationsContainer from '../ConversationsContainer/ConversationsContainer';
+import ConversationsContainer from '../../containers/ConversationsContainer/ConversationsContainer';
 import Conversation from '../../containers/Conversation/Conversation';
 import styles from './MessagesDashboard.module.scss';
 
