@@ -1,6 +1,6 @@
 import { preAuthNavLinks, postAuthNavLinks } from '../../constants/navLinks';
 import useAuth from '../../hooks/useAuth';
-import Heading from '../../components/Heading/Heading';
+import Heading from '../../composites/Heading/Heading';
 import Nav from '../../components/Nav/Nav';
 import styles from './Header.module.scss';
 
