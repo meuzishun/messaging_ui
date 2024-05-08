@@ -1,7 +1,7 @@
 import { useLocation, useOutlet } from 'react-router-dom';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import { routes } from '../routes';
-import Header from '../components/Header/Header';
+import Header from '../containers/Header/Header';
 import Footer from '../components/Footer/Footer';
 import styles from './RootLayout.module.scss';
 
