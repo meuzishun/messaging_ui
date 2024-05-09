@@ -1,6 +1,6 @@
 import useDashboard from '../../hooks/useDashboard';
 import { BsArrowLeft } from 'react-icons/bs';
-import Participants from '../../components/Participants/Participants';
+import Participants from '../Participants/Participants';
 import AddParticipant from '../../features/AddParticipant/AddParticipant';
 import styles from './ConversationHeader.module.scss';
 

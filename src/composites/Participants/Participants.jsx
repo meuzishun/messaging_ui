@@ -1,6 +1,6 @@
 import useNewMessage from '../../hooks/useNewMessage';
 import useAuth from '../../hooks/useAuth';
-import Participant from '../Participant/Participant';
+import Participant from '../../components/Participant/Participant';
 import styles from './Participants.module.scss';
 
 function Participants() {
