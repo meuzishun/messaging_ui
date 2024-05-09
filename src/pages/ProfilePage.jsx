@@ -1,5 +1,5 @@
 import { ProfileProvider } from '../contexts/ProfileContext';
-import Profile from '../components/Profile/Profile';
+import Profile from '../features/Profile/Profile';
 import styles from './ProfilePage.module.scss';
 
 function ProfilePage() {
