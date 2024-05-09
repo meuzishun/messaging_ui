@@ -1,5 +1,5 @@
 import { UserSearchProvider } from '../contexts/UserSearchContext';
-import UserSearch from '../components/UserSearch/UserSearch';
+import UserSearch from '../features/UserSearch/UserSearch';
 
 function UserSearchPage() {
   return (
