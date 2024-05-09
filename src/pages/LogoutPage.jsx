@@ -1,4 +1,4 @@
-import LogoutConfirm from '../components/LogoutConfirm/LogoutConfirm';
+import LogoutConfirm from '../composites/LogoutConfirm/LogoutConfirm';
 import styles from './LogoutPage.module.scss';
 
 function LogoutPage() {
