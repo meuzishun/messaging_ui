@@ -1,6 +1,6 @@
 import useProfile from '../../hooks/useProfile';
 import ProfileField from '../../components/ProfileField/ProfileField';
-import ProfileEditButtons from '../../components/ProfileEditButtons/ProfileEditButtons';
+import ProfileEditButtons from '../../composites/ProfileEditButtons/ProfileEditButtons';
 import styles from './Profile.module.scss';
 
 function Profile() {
