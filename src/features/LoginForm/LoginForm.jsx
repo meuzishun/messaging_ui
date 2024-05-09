@@ -1,10 +1,10 @@
-import { loginInputFields } from '../../constants/inputFields';
+import { loginInputFields } from '../../constants/inputFields.js';
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth.jsx';
-import Form from '../../composites/Form/Form';
-import FormInput from '../FormInput/FormInput';
-import Button from '../Button/Button';
+import Form from '../../composites/Form/Form.jsx';
+import FormInput from '../../components/FormInput/FormInput.jsx';
+import Button from '../../components/Button/Button.jsx';
 import styles from './LoginForm.module.scss';
 
 function LoginForm() {
