@@ -1,4 +1,4 @@
-import MessagesDashboard from '../components/MessagesDashboard/MessagesDashboard';
+import MessagesDashboard from '../features/MessagesDashboard/MessagesDashboard';
 
 function MessagesPage() {
   return (
