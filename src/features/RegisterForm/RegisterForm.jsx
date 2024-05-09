@@ -2,9 +2,9 @@ import { registerInputFields } from '../../constants/inputFields.js';
 import { useRef, useEffect, useState } from 'react';
 import useAuth from '../../hooks/useAuth.jsx';
 import { useNavigate, Link } from 'react-router-dom';
-import Form from '../../composites/Form/Form';
-import FormInput from '../FormInput/FormInput';
-import Button from '../Button/Button';
+import Form from '../../composites/Form/Form.jsx';
+import FormInput from '../../components/FormInput/FormInput.jsx';
+import Button from '../../components/Button/Button.jsx';
 import styles from './RegisterForm.module.scss';
 
 function RegisterForm() {
