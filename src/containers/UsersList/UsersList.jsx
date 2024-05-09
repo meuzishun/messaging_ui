@@ -1,8 +1,8 @@
 import useAuth from '../../hooks/useAuth';
 import useFriends from '../../hooks/useFriends';
 import useUserSearch from '../../hooks/useUserSearch';
-import LoadingMsg from '../LoadingMsg/LoadingMsg';
-import User from '../User/User';
+import LoadingMsg from '../../components/LoadingMsg/LoadingMsg';
+import User from '../../components/User/User';
 import { filterUserAndFriends } from '../../lib/filterUserAndFriends';
 import styles from './UsersList.module.scss';
 
