@@ -1,7 +1,7 @@
 import useMessages from '../../hooks/useMessages';
 import useDashboard from '../../hooks/useDashboard';
-import Message from '../Message/Message';
-import AlwaysScrollToBottom from '../AlwaysScrollToBottom/AlwaysScrollToBottom';
+import Message from '../../components/Message/Message';
+import AlwaysScrollToBottom from '../../components/AlwaysScrollToBottom/AlwaysScrollToBottom';
 import styles from './MessagesContainer.module.scss';
 
 function MessagesContainer() {

@@ -1,6 +1,6 @@
 import useDashboard from '../../hooks/useDashboard';
 import ConversationHeader from '../../composites/ConversationHeader/ConversationHeader';
-import MessagesContainer from '../../components/MessagesContainer/MessagesContainer';
+import MessagesContainer from '../../composites/MessagesContainer/MessagesContainer';
 import NewMessageInput from '../../components/NewMessageInput/NewMessageInput';
 import { formatClassNames } from '../../lib/formatClassNames';
 import styles from './Conversation.module.scss';
