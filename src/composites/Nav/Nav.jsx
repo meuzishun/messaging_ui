@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import { useState, useRef } from 'react';
 import useOnClickOutside from '../../hooks/useOnClickOutside';
 import styles from './Nav.module.scss';
-import MenuBtn from '../MenuBtn/MenuBtn';
-import NavLinks from '../NavLinks/NavLinks';
+import MenuBtn from '../../components/MenuBtn/MenuBtn';
+import NavLinks from '../../components/NavLinks/NavLinks';
 
 function Nav({ navLinks }) {
   const [showLinks, setShowLinks] = useState(false);
