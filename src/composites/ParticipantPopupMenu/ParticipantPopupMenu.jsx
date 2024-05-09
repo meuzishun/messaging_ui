@@ -1,7 +1,7 @@
 import useNewMessage from '../../hooks/useNewMessage';
 import useFriends from '../../hooks/useFriends';
-import AddSingleParticipant from '../AddSingleParticipant/AddSingleParticipant';
-import LoadingMsg from '../LoadingMsg/LoadingMsg';
+import AddSingleParticipant from '../../components/AddSingleParticipant/AddSingleParticipant';
+import LoadingMsg from '../../components/LoadingMsg/LoadingMsg';
 import styles from './ParticipantPopupMenu.module.scss';
 
 function ParticipantPopupMenu() {
