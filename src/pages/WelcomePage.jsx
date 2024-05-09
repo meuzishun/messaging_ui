@@ -1,5 +1,5 @@
 import Hero from '../components/Hero/Hero';
-import WelcomeNav from '../components/WelcomeNav/WelcomeNav';
+import WelcomeNav from '../composites/WelcomeNav/WelcomeNav';
 import styles from './WelcomePage.module.scss';
 
 function WelcomePage() {
