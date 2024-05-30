@@ -1,15 +1,14 @@
 import { useLocation, useOutlet } from 'react-router-dom';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
-import { routes } from '../routes';
 import Header from '../containers/Header/Header';
 import Footer from '../components/Footer/Footer';
 import styles from './RootLayout.module.scss';
+import { useRef } from 'react';
 
 export default function RootLayout() {
   const location = useLocation();
   const currentOutlet = useOutlet();
-  const { nodeRef } =
-    routes.find((route) => route.path === location.pathname) ?? {};
+  const nodeRef = useRef(null);
 
   return (
     <div className={styles['root-layout']}>
@@ -32,11 +31,9 @@ export default function RootLayout() {
           }}
           unmountOnExit
         >
-          {() => (
-            <main ref={nodeRef} className={styles['main']}>
-              {currentOutlet}
-            </main>
-          )}
+          <main ref={nodeRef} className={styles['main']}>
+            {currentOutlet}
+          </main>
         </CSSTransition>
       </SwitchTransition>
       <Footer />
