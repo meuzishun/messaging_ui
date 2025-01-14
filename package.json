@@ -2,6 +2,7 @@
   "name": "messaging_ui",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://meuzishun.github.io/messaging_ui/",
   "type": "module",
   "scripts": {
     "dev": "vite",
