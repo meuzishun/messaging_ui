@@ -1,4 +1,11 @@
-const baseUrl = 'https://messaging-api-twex.onrender.com/api';
+// Render
+// const baseUrl = 'https://messaging-api-twex.onrender.com/api';
+
+// Adaptable
+// const baseUrl = 'https://pigeon.adaptable.app/api';
+
+// For development
+const baseUrl = 'http://localhost:3000/api';
 
 const postLoginData = async (formData) => {
   const response = await fetch(`${baseUrl}/auth/login`, {
