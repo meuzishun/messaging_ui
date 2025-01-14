@@ -4,7 +4,7 @@ import { LoadingModalProvider } from './contexts/LoadingModalContext';
 import { AuthProvider } from './contexts/AuthContext';
 import LoadingModal from './components/LoadingModal/LoadingModal';
 
-const router = createBrowserRouter(routes, { basename: '/' });
+const router = createBrowserRouter(routes, { basename: '/messaging_ui' });
 
 function App() {
   return (
