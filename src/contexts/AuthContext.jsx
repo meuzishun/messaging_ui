@@ -128,6 +128,7 @@ function AuthProvider({ children }) {
   const login = async (formData) => {
     setShowLoadingModal(true);
     const response = await postLoginData(formData);
+    console.log(response);
     const data = await response.json();
 
     if (!response.ok) {
