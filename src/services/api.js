@@ -11,6 +11,7 @@ const baseUrl = 'https://messagingapi-production-62f5.up.railway.app/api';
 // const baseUrl = 'http://localhost:3000/api';
 
 const postLoginData = async (formData) => {
+  console.log(formData);
   const response = await fetch(`${baseUrl}/auth/login`, {
     method: 'POST',
     headers: {
