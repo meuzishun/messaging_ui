@@ -11,6 +11,10 @@ function ConversationsList() {
   const { conversations, isLoading } = useMessages();
   const nodeRef = isLoading ? loadingRef : conversationsRef;
 
+  const sortingFn = (a, b) => {
+    return new Date(b.at(-1).timestamp) - new Date(a.at(-1).timestamp);
+  };
+
   return (
     <FadeTransition parentKey={isLoading} nodeRef={nodeRef} styles={styles}>
       {isLoading ? (
@@ -24,12 +28,14 @@ function ConversationsList() {
               <p className={styles['msg']}>No messages</p>
             </div>
           ) : (
-            conversations?.map((conversation) => (
-              <ConversationPreview
-                key={conversation[0]._id}
-                conversation={conversation}
-              />
-            ))
+            conversations
+              ?.sort(sortingFn)
+              .map((conversation) => (
+                <ConversationPreview
+                  key={conversation[0]._id}
+                  conversation={conversation}
+                />
+              ))
           )}
         </div>
       )}
