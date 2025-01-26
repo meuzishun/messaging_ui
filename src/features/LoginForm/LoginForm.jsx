@@ -18,6 +18,8 @@ function LoginForm() {
   };
 
   const handleSubmit = async (formData) => {
+    console.log("LoginForm's formData at top of handleSubmit:");
+    console.table(formData);
     inputRefs.password.current.blur();
     setError(null);
 

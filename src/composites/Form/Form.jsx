@@ -17,6 +17,8 @@ function Form({ onSubmit, children }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('formState in From component:');
+    console.table(formState);
     onSubmit(formState);
     setFormState((prev) => {
       return {
