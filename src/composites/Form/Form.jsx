@@ -7,6 +7,9 @@ function Form({ onSubmit, children }) {
 
   const handleChange = (e) => {
     e.preventDefault();
+    console.log(
+      `Updating field: ${e.target.name} with value: ${e.target.value}`
+    );
     setFormState((prev) => {
       return {
         ...prev,
