@@ -35,6 +35,7 @@ function Form({ onSubmit, children }) {
     <form className={styles.form} onSubmit={handleSubmit}>
       {Children.map(children, (child) => {
         if (child?.type.name === 'FormInput') {
+          console.log('Cloning FormInput with props:', child.props);
           return cloneElement(child, {
             value: formState[child.props.name] || '',
             onChange: handleChange,
