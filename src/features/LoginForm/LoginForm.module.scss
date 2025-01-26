@@ -12,16 +12,51 @@
     font-weight: normal;
   }
 
-  .link {
-    justify-self: center;
-    font-size: 0.8rem;
+  form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: min-content;
+    padding-bottom: 20px;
+    gap: 20px;
 
-    a {
-      text-decoration: none;
+    fieldset {
+      display: flex;
+      flex-direction: column;
+      border: none;
 
-      &:visited,
-      &:active {
-        color: var(--soft-blue);
+      label {
+        text-transform: capitalize;
+        font-size: 0.85rem;
+      }
+
+      input {
+        font-size: 1.25rem;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid grey;
+
+        &:focus {
+          outline-color: var(--soft-blue);
+        }
+      }
+    }
+
+    button {
+      justify-self: center;
+      margin-bottom: 30px;
+    }
+
+    .link {
+      justify-self: center;
+      font-size: 0.8rem;
+
+      a {
+        text-decoration: none;
+
+        &:visited,
+        &:active {
+          color: var(--soft-blue);
+        }
       }
     }
   }
