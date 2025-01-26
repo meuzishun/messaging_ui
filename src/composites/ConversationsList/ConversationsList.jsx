@@ -24,14 +24,12 @@ function ConversationsList() {
               <p className={styles['msg']}>No messages</p>
             </div>
           ) : (
-            conversations
-              ?.reverse()
-              .map((conversation) => (
-                <ConversationPreview
-                  key={conversation[0]._id}
-                  conversation={conversation}
-                />
-              ))
+            conversations?.map((conversation) => (
+              <ConversationPreview
+                key={conversation[0]._id}
+                conversation={conversation}
+              />
+            ))
           )}
         </div>
       )}
