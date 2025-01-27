@@ -7,9 +7,6 @@ function Form({ onSubmit, children }) {
 
   const handleChange = (e) => {
     e.preventDefault();
-    console.log(
-      `Updating field: ${e.target.name} with value: ${e.target.value}`
-    );
     setFormState((prev) => {
       return {
         ...prev,
@@ -20,8 +17,6 @@ function Form({ onSubmit, children }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('formState in From component:');
-    console.table(formState);
     onSubmit(formState);
     setFormState((prev) => {
       return {
@@ -35,7 +30,6 @@ function Form({ onSubmit, children }) {
     <form className={styles.form} onSubmit={handleSubmit}>
       {Children.map(children, (child) => {
         if (child?.type.name === 'FormInput') {
-          console.log('Cloning FormInput with props:', child.props);
           return cloneElement(child, {
             value: formState[child.props.name] || '',
             onChange: handleChange,

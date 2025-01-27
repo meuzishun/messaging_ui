@@ -1,9 +1,6 @@
-// import { loginInputFields } from '../../constants/inputFields.js';
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth.jsx';
-// import Form from '../../composites/Form/Form.jsx';
-// import FormInput from '../../components/FormInput/FormInput.jsx';
 import Button from '../../components/Button/Button.jsx';
 import styles from './LoginForm.module.scss';
 
@@ -18,26 +15,6 @@ function LoginForm() {
     email: '',
     password: '',
   });
-
-  // const inputRefs = {
-  //   email: useRef(null),
-  //   password: useRef(null),
-  // };
-
-  // const handleSubmit = async (formData) => {
-  //   console.log("LoginForm's formData at top of handleSubmit:");
-  //   console.table(formData);
-  //   passwordRef.current.blur();
-  //   setError(null);
-
-  //   try {
-  //     await login(formData);
-  //     setError(null);
-  //     navigate('/messages');
-  //   } catch (error) {
-  //     setError(error);
-  //   }
-  // };
 
   const handleChange = (e) => {
     setFormState({
@@ -75,23 +52,6 @@ function LoginForm() {
   return (
     <div className={styles['login-form']}>
       <h2>Login</h2>
-      {/* <Form onSubmit={handleSubmit}>
-        {loginInputFields.map((field) => (
-          <FormInput
-            key={field.id}
-            type={field.type}
-            id={field.id}
-            name={field.name}
-            label={field.label}
-            forwardedRef={inputRefs[field.name]}
-          />
-        ))}
-        {error && <p>{error.message}</p>}
-        <Button type='submit' textContent='login' classNames={['btn']} />
-        <p className={styles['link']}>
-          Don&apos;t have an account? <Link to='/register'>Click here</Link>
-        </p>
-      </Form> */}
       <form onSubmit={handleSubmit}>
         <fieldset>
           <label htmlFor='email'>Email</label>

@@ -10,7 +10,6 @@ function Participant({ participant }) {
   } = useNewMessage();
 
   const handleRemoveClick = () => {
-    console.log(`Removing ${participant.firstName} ${participant.lastName}`);
     removeNewMsgParticipant(participant);
   };
 
